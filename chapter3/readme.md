@@ -1,7 +1,7 @@
 
-CHAPTER 3 – BUILDING ARRAYS AND CONTROLLING FLOW
+# CHAPTER 3 – BUILDING ARRAYS AND CONTROLLING FLOW
 
-Declaring and Initializing Arrays:
+## Declaring and Initializing Arrays:
 Array literal
 most common way to create an array
 declares a variable and specifies array as content
@@ -15,7 +15,7 @@ Create an array named newsSections containing 4 strings as elements
 var newsSections = ["world","local","opinion","sports"];
 
 
-Accessing Element Information:
+## Accessing Element Information:
 To access an element’s value:
 Include brackets and element index
 
@@ -28,7 +28,7 @@ sec2Head.innerHTML = newsSections[1]; // "local"
 sec3Head.innerHTML = newsSections[2]; // "opinion"
 
 
-Using the Array Object:
+## Using the Array Object:
 JavaScript represents arrays with the Array object
 Contains a special constructor named Array()
 Constructor
@@ -39,7 +39,7 @@ var newsSections = new Array(6);
 Note: Create arrays using array literals (easier) rather than using Array() constructor.
 
 
-Referencing Default Collections of Elements
+## Referencing Default Collections of Elements
 getElementsByTagName() method
 Can reference web page element by looking up all elements of a certain type in document and referencing one element in that collection
 Resulting collection uses syntax similar to arrays
@@ -52,7 +52,7 @@ document.getElementsByTagName("li")[2]
     document.getElementsByTagName("li")[2].innerHTML
 
 
-Repeating Code
+## Repeating Code
 Three types of loop statements
 while statements
 
@@ -95,7 +95,7 @@ function addColumnHeaders() {
 }
 
 
-Using continue Statements to Restart Execution
+## Using continue Statements to Restart Execution
 continue statement
 Halts a looping statement
 Restarts the loop with a new iteration
@@ -111,7 +111,7 @@ for (var count = 1; count <= 5; count++) {
 }
 
 
-Making Decisions
+## Making Decisions
 Decision making
 Process of determining the order in which statements execute in a program
 if statement
