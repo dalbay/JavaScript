@@ -1,4 +1,4 @@
-
+![project-3 picture](https://github.com/dalbay/JavaScript/blob/master/chapter3/images/chapter-3.png)
 # CHAPTER 3 – BUILDING ARRAYS AND CONTROLLING FLOW
 
 ## Declaring and Initializing Arrays:
