@@ -13,25 +13,16 @@ JavaScript code for this project -
 https://gist.github.com/dalbay/46ff12c30c97c1aa50c0b77c45e172a0#file-gistfile1-txt
 
 // global variables
-var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", 
-   "Thursday", "Friday", "Saturday"];
-var opponents = ["Lightning", "Combines", "Combines", 
-    "Combines", "Lightning", "Lightning", "Lightning", 
-    "Lightning", "Barn Raisers", "Barn Raisers", 
-    "Barn Raisers", "Sodbusters", "Sodbusters", "Sodbusters",
-    "Sodbusters", "(off)", "River Riders", "River Riders", 
-    "River Riders", "Big Dippers", "Big Dippers", 
-    "Big Dippers", "(off)", "Sodbusters", "Sodbusters",
-    "Sodbusters", "Combines", "Combines", "Combines", 
-    "(off)", "(off)"];
-var gameLocation = 
-   ["away", "away", "away", "away", "home", "home", "home",
-    "home", "home", "home", "home", "away", "away", "away",
-    "away", "", "away", "away", "away", "away", "away",
-    "away", "", "home", "home", "home", "home", "home",
-    "home", "", ""];
 
-// function to place daysOfWeek values in header row cells 
+var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+var opponents = ["Lightning", "Combines", "Combines","Combines", "Lightning", "Lightning", "Lightning","Lightning", "Barn Raisers", "Barn Raisers","Barn Raisers", "Sodbusters", "Sodbusters", "Sodbusters","Sodbusters", "(off)", "River Riders", "River Riders","River Riders", "Big Dippers", "Big Dippers","Big Dippers", "(off)", "Sodbusters", "Sodbusters","Sodbusters", "Combines", "Combines", "Combines","(off)", "(off)"];
+
+var gameLocation = 
+   ["away", "away", "away", "away", "home", "home", "home","home", "home", "home", "home", "away", "away", "away", "away", "", "away", "away", "away", "away", "away", "away", "", "home", "home", "home", "home", "home", "home", "", ""];
+
+// function to place daysOfWeek values in header row cells
+
 function addColumnHeaders() {
    var i = 0;
    while (i < 7) {
@@ -40,8 +31,8 @@ function addColumnHeaders() {
    }
 }
 
-// function to place day of month value in first p element 
-// within each table data cell that has an id 
+// function to place day of month value in first p element within each table data cell that has an id 
+
 function addCalendarDates() {
    var i = 1;
    var paragraphs = "";
@@ -53,8 +44,8 @@ function addCalendarDates() {
    } while (i <= 31);
 }
 
-// function to place opponents and gameLocation values in 
-// second p element within each table data cell that has an id
+// function to place opponents and gameLocation values in second p element within each table data cell that has an id
+
 function addGameInfo() {
    var paragraphs = "";
    for (var i = 0; i < 31; i++) {
@@ -88,6 +79,7 @@ function addGameInfo() {
 }
 
 // function to populate calendar 
+
 function setUpPage() {
    addColumnHeaders();
    addCalendarDates();
@@ -95,6 +87,7 @@ function setUpPage() {
 }
 
 // runs setUpPage() function when page loads
+
 if (window.addEventListener) {
    window.addEventListener("load", setUpPage, false);
 } else if (window.attachEvent) {
