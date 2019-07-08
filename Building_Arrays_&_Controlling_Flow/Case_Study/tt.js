@@ -65,14 +65,6 @@ function addGameInfo() {
       if (gameLocation[i] === "home") {
          paragraphs[1].innerHTML = "vs ";
       }
-/*      if (gameLocation[i] === "away") {
-         paragraphs[1].innerHTML = "@ ";
-      } 
-      else {
-         if (gameLocation[i] === "home") {
-            paragraphs[1].innerHTML = "vs ";
-         }
-      } 
       /*switch (gameLocation[i]) {
          case "away":
             paragraphs[1].innerHTML = "@ ";
