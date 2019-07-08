@@ -1,6 +1,5 @@
 
 # CHAPTER 3 – BUILDING ARRAYS AND CONTROLLING FLOW
-## CHAPTER 3 – BUILDING ARRAYS AND CONTROLLING FLOW
 ### Declaring and Initializing Arrays
 * Array Literal
 * Accessing Element Information
@@ -16,6 +15,7 @@
 * if statement
 * Else if statemets	
 * Switch statement	
+
 
 ## Chapter 3 Case Study
 
