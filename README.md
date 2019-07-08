@@ -30,7 +30,7 @@
 ### Customizing Browser-Based Validation
 * Specific Browser-Based Validation Parameters
 * Customizing Browser-based Validation Feedback
-###Programming Custom Validation
+### Programming Custom Validation
 * Validating Submitted Data
 * Validate Required Fields with Custom Functions
 * Validating Dependent Fields with Custom Functions
