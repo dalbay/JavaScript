@@ -6,7 +6,7 @@
 * Create function to trigger validation of required fields when the submit button is clicked
 * Run setup functions when page finishes loading (code to call the createEventListener() function)
 
-![Project 6-1](../Ch6_Enhancing_and_Validating_Forms/Project6-1/images/)
+![Project6-1](../Ch6_Enhancing_and_Validating_Forms/Project6-1/images/project6-1.png)
 
 ```javascript
 //The Form
@@ -50,12 +50,12 @@
           <input type="submit" id="submitBtn" value="Submit" />
         </fieldset>
      </form>
-
    </article>
    <script src="script.js"></script>
 
 
-"use strict";//interpret document contents in JavaScript strict mode
+/* interpret document contents in JavaScript strict mode */
+"use strict";
 
 /* global variables */
 var formValidity = true;
