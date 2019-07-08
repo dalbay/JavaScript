@@ -19,7 +19,7 @@
 
 ## Chapter 3 Case Study
 
-![Chapter3_Case_Study](../Building_Arrays_&_Controlling_Flow/Case_Study/images/chapter-3.png)
+![Chapter3_Case_Study](../Ch3_Building_Arrays_&_Controlling_Flow/Case_Study/images/chapter-3.png)
 ```javascript
 // global variables
 var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", 
