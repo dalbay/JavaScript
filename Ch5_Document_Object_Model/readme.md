@@ -33,4 +33,4 @@
 * The Screen Object
 
 ## Case Study
-![Chapter5_Case_Study](../Case_Study/images/chapter-5.png)
+![Chapter5_Case_Study](Ch5_Document_Object_Model/Case_Study/images/chapter-5.png)
