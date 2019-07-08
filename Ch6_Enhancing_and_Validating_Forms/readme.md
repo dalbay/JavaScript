@@ -19,7 +19,7 @@
 
 ### Case Study 
 
-![Chapter6_Case_Study](../Ch6_Enhancing_and_Validating_Forms/Project6-1/images/project6-1.png)
+![Chapter6_Case_Study](../Ch6_Enhancing_and_Validating_Forms/Case_Study/images/chapter-6.png)
 ``` javascript
 /* change the days list dynamically based on the selected month and year */
 /* global variables */
