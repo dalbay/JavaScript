@@ -10,4 +10,4 @@
 
 JavaScript code for this project - 
 
-<script src="https://gist.github.com/dalbay/46ff12c30c97c1aa50c0b77c45e172a0.js"></script>
+https://gist.github.com/dalbay/46ff12c30c97c1aa50c0b77c45e172a0
