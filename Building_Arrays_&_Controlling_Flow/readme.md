@@ -175,5 +175,5 @@ document.write("<p>" + city_location("Boston") + "</p>");
 
 
 EXAMPLE - Case Project:
-
+https://gist.github.com/dalbay/46ff12c30c97c1aa50c0b77c45e172a0
 
