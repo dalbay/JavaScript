@@ -100,4 +100,3 @@ if (window.addEventListener) {
 } else if (window.attachEvent) {
    window.attachEvent("onload", setUpPage);
 }
-
