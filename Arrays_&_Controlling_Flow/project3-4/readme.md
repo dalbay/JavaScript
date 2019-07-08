@@ -8,6 +8,3 @@
 * event-listener
 * submit button
 
-JavaScript code for this project - 
-
-https://gist.github.com/dalbay/46ff12c30c97c1aa50c0b77c45e172a0
