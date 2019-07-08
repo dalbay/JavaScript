@@ -1,4 +1,4 @@
-## CHAPTER 6 – Enhancing and Validating Form
+# CHAPTER 6 – Enhancing and Validating Form
 ### Using JavaScript with Forms
 * Referencing Forms and Form Elements
 ### Improving Form Usability
