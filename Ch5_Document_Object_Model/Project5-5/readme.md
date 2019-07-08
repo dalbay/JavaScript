@@ -5,7 +5,7 @@
 * Create a new li element and assign the value
 * Add a backward-compatible event listener when the page finishes loading.
 
-![Chapter5_5](../Ch5_Document_Object_Model/Project5-5/images/project5-5.png)
+![Chapter5_5](../JavaScript/Ch5_Document_Object_Model/Project5-5/images/project5-5.png)
 
 ```javascript
 <!DOCTYPE html>
