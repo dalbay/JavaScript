@@ -17,4 +17,6 @@
 * Validating Dependent Fields with Custom Functions
 * Validating Content Type with Custom Functions
 
+###Case Study 
+
 ![Chapter6_Case_Study](../Ch6_Enhancing_and_Validating_Forms/Case_Study/images/chapter-6.png)
