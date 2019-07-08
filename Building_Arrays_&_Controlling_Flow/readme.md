@@ -1,6 +1,7 @@
 
 # CHAPTER 3 – BUILDING ARRAYS AND CONTROLLING FLOW
 
+![Chapter3_Case_Study](../Building_Arrays_&_Controlling_Flow/Case_Study/images/chapter-3.png)
 ```javascript
 // global variables
 var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", 
