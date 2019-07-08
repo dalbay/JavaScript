@@ -31,3 +31,6 @@
 * The Location Object
 * The Navigation Object
 * The Screen Object
+
+## Case Study
+![Chapter5_Case_Study](/Case_Study/images/chapter-5.png)
