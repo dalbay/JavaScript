@@ -6,7 +6,8 @@
 * Create function to trigger validation of required fields when the submit button is clicked
 * Run setup functions when page finishes loading (code to call the createEventListener() function)
 
-![Project6-1](Ch6_Enhancing_and_Validating_Forms/Project6-1/images/project6-1.png)
+![Project6_1](../Ch6_Enhancing_and_Validating_Forms/Project6-1/images/project6-1.png)
+![Chapter6_Case_Study](../Ch6_Enhancing_and_Validating_Forms/Case_Study/images/chapter-6.png)
 
 ```javascript
 //The Form
