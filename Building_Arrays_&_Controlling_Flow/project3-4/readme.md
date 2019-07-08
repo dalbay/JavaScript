@@ -8,39 +8,10 @@
 * event-listener
 * submit button
 
-```javascript
-      var i = 1;
-      var listItem;
-      function processInput(){
-         if(i <= 5){
-            listItem = "item" + i;
-            var name = document.getElementById("toolBox").value;
-            document.getElementById(listItem).innerText =  name;
-            document.getElementById("toolBox").value = "";
-            if(i === 5){
-               document.getElementById("resultsExpl").innerText = "Thanks for your suggestions."
-            }
-            i++;             
-         }
-      }
-      function alertMe(){
-         var name = document.getElementById("toolBox").value;
-         alert("Thank You" + name);
-      }
-      document.getElementById("button").addEventListener("click", processInput, false);
-      
-      
-      <!DOCTYPE html>
+```javascript    
+<!DOCTYPE html>
 <html>
 <head>
-   <!--
-      JavaScript 6th Edition
-      Chapter 3
-      Hands-on Project 3-4
-      Author: Faruk Dalbay 
-      Date:   05/29/2019
-      Filename: index.htm
-   -->
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width,initial-scale=1.0">
    <title>Hands-on Project 3-4</title>
@@ -78,6 +49,7 @@
           </fieldset>
       </form>
    </article>
+   
    <script>
       var i = 1;
       var listItem;
@@ -99,6 +71,7 @@
       }
       document.getElementById("button").addEventListener("click", processInput, false);
    </script>
+   
 </body>
 </html>
 ```
