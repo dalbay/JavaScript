@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--
+      JavaScript 6th Edition
+      Chapter 3
+      Hands-on Project 3-5
+
+      Author: Faruk Dalbay 
+      Date:   05/29/2019
+
+      Filename: index.htm
+   -->
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Hands-on Project 3-5</title>
+   <link rel="stylesheet" href="styles.css" />
+   <script src="modernizr.custom.05819.js"></script>
+</head>
+
+<body>
+   <header>
+      <h1>
+         Hands-on Project 3-5
+      </h1>
+   </header>
+
+   <article>
+      <div id="results">
+          <ul>
+             <li id="item1"></li>
+             <li id="item2"></li>
+             <li id="item3"></li>
+             <li id="item4"></li>
+             <li id="item5"></li>
+          </ul>
+          <p id="resultsExpl"></p>
+      </div>
+      <form>
+          <fieldset>
+            <label for="toolBox" id="placeLabel">
+              Type the name of a tool, then click Submit:
+            </label>
+            <input type="text" id="toolBox" />
+          </fieldset>
+          <fieldset>
+            <button type="button" id="button">Submit</button>
+          </fieldset>
+      </form>
+   </article>
+   <script>
+      //Global variables:
+      var i = 1;
+      var listItem;
+
+      function processInput(){
+         /*
+         if(i <= 5){
+            listItem = "item" + i;
+            //var list = document.getElementsByTagName("li");
+            var name = document.getElementById("toolBox").value;
+            document.getElementById(listItem).innerText =  name;
+            document.getElementById("toolBox").value = "";
+            if(i === 5){
+               document.getElementById("resultsExpl").innerText = "Thanks for your suggestions."
+            }
+            i++;             
+         }
+         */
+        listItem = "item" + i;
+        var name = document.getElementById("toolBox").value;
+        switch(i){
+           case 5:
+              document.getElementById(listItem).innerText = name;
+              document.getElementById("resultsExpl").innerText = "Thanks for your suggestions.";
+              break;
+           default:
+               document.getElementById(listItem).innerText = name;
+               document.getElementById("toolBox").value = "";
+               i++;
+               break;
+        }
+      }      
+
+      function alertMe(){
+         alert("Welcome to Project 3-5 - Making Decisions");
+      }
+
+      //Add the Event Listener:
+      document.getElementById("button").addEventListener("click", processInput, false);
+      
+      //Adding a Page Load event listener:
+      window.addEventListener("load",alertMe,false);
+   </script>
+</body>
+</html>
