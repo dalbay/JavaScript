@@ -1,6 +1,4 @@
 # JavaScript. 
-*Short Summary of "JavaScript - by Sasha Vodnik & Don Gosselin"*- 
-https://www.cengage.com/c/javascript-the-web-warrior-series-6e-vodnik/
 
 ## CHAPTER 2 - FUNCTIONS, DATA TYPE, OPERATORS
 ### Working with Functions
