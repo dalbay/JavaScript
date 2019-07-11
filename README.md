@@ -1,4 +1,5 @@
-# JavaScript.
+# JavaScript. 
+** Summary of "JavaScript" by Sasha Vodnik & Don Gosselin**
 
 ## CHAPTER 2 - FUNCTIONS, DATA TYPE, OPERATORS
 ### Working with Functions
