@@ -1,8 +1,8 @@
 ### Hands-On Project 2-4
 Create a script that totals the price of all the elements a user selects; adds sales tax;  display the order total in an alert box:
 
- ![chapter2_Project](../Ch2_Functions_Data_Type_Operators/Project2-4/images/ch2A)
- ![chapter2_Project](../Ch2_Functions_Data_Type_Operators/Project2-4/images/ch2B)
+ ![chapter2_Project](../Ch2_Functions_Data_Type_Operators/Project2-4/images/ch2A.png)
+ ![chapter2_Project](../Ch2_Functions_Data_Type_Operators/Project2-4/images/ch2B.png)
  
 ```javascript
   <article>
