@@ -26,6 +26,8 @@
 * Adding Methods to a Constructor Function
 * Using the prototype Property
 
+## Case Study
+
 ![Chapter7_project](/Ch7_Object-Oriented_JavaScript/Case_Study/images/case_StudyCh7.png)
 
 ```javascript
