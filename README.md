@@ -1,5 +1,17 @@
 # JavaScript.
 
+## CHAPTER 2 - FUNCTIONS, DATA TYPE, OPERATORS
+### Working with Functions
+* Defining Functions
+* Handling Events with Functions
+* Using Return statement
+* Understanding Variable Scope
+* Using Built-in JavaScript Functions
+### Working with Data Types
+* Escape characters and sequences
+* Comparison and Conditional Operators
+
+
 ## CHAPTER 3 – BUILDING ARRAYS AND CONTROLLING FLOW
 ### Declaring and Initializing Arrays
 * Array Literal
@@ -17,7 +29,7 @@
 * Else if statemets
 * Switch statement
 
-## CHAPTER 4 - Debugging and Error Handling
+## CHAPTER 4 - DEBUGGING and ERROR HANDLING
 ### Introduction to Debugging
 * Recognizing Syntax Errors:
 * Recognizing Run-Time Errors
@@ -47,7 +59,7 @@
 * Reloading a Web page
 
 
-## CHAPTER 5 – Working with the DOM
+## CHAPTER 5 – WORKING WITH THE DOM
 ### Understanding the Browser Object Model and the Document Object Model
 * The Browser Object Model
 * The Document Object Model
@@ -81,7 +93,7 @@
 * The Navigation Object
 * The Screen Object
 
-## CHAPTER 6 – Enhancing and Validating Form
+## CHAPTER 6 – ENHANCING and VALIDATING FORM
 ### Using JavaScript with Forms
 * Referencing Forms and Form Elements
 ### Improving Form Usability
@@ -100,7 +112,7 @@
 * Validating Dependent Fields with Custom Functions
 * Validating Content Type with Custom Functions
 
-## CHAPTER 7 - Using Object-Oriented JavaScript
+## CHAPTER 7 - USING OBJECT-ORIENTED JAVASCRIPT
 ### Introduction to OOP
 #### Understanding Encapsulation
 * Encapsulated objects
