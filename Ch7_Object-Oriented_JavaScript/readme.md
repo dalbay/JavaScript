@@ -25,5 +25,6 @@
 * Adding Properties to a Constructor Function
 * Adding Methods to a Constructor Function
 * Using the prototype Property
-![Chapter7_project](../Case_Study/images/case_StudyCh7.png)
+
+![Chapter7_project](/Ch7_Object-Oriented_JavaScript/Case_Study/images/case_StudyCh7.png)
 
