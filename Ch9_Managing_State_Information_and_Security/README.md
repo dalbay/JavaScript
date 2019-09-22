@@ -26,8 +26,10 @@
 – Add a question mark (?) immediately after a URL; followed by the query string (in name-value pairs) for the information to preserve
 – Ampersands (&) - separates individual name-value pairs within the query string
 *Example:*
-```html<a href="http://www.example.com/↵ 
-   addItem.html?isbn=9780394800165&quantity=2">Order Book</a>```
+```html
+<a href="http://www.example.com/↵ 
+   addItem.html?isbn=9780394800165&quantity=2">Order Book</a>
+ ```
 
 ##### Parsing Data from a Query String
 - Passed query string assigned to target web page Location object search property
