@@ -22,9 +22,11 @@
   –	Consists of a single text string
 * Contains one or more pieces of information
 * Passes information from one web page to another
+
 ##### Passing data with a query string
-– Add a question mark (?) immediately after a URL; followed by the query string (in name-value pairs) for the information to preserve
-– Ampersands (&) - separates individual name-value pairs within the query string
+
+- Add a question mark (?) immediately after a URL; followed by the query string (in name-value pairs) for the information to preserve
+- Ampersands (&) - separates individual name-value pairs within the query string
 *Example:*
 ```html
 <a href="http://www.example.com/↵ 
@@ -50,4 +52,29 @@ queryData = queryData.substring(1, queryData.length);
 // split queryData into an array
 var queryArray = queryData.split("&");
 ```
+##### Example
+```JavaScript
+// interpret the document content in strict mode
+"use strict";
 
+// global variable
+var queryArray = [];
+
+function populateInfo() {
+   // checks if the search property of the Location object has a value;
+   if (location.search) {
+      var queryData = location.search;
+      // copy all but the first character (?) from the queryData variable
+      queryData = queryData.substring(1, queryData.length);
+      // extract each name-value pair from the queryData variable and assign it as an element in the queryArray variable
+      queryArray = queryData.split("&");
+   }
+}
+
+// run the setUpPage function when the page finishes loading. 
+if (window.addEventListener) {
+   window.addEventListener("load", setUpPage, false);
+} else if (window.attachEvent) {
+   window.attachEvent("onload", setUpPage);
+}
+```
