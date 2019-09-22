@@ -1,32 +1,32 @@
 ## Managing State and Information Security
 
-• Save state information with query strings, hidden form fields, and cookies
-• Describe JavaScript security issues and employ coding practices designed to address them
+* Save state information with query strings, hidden form fields, and cookies
+* Describe JavaScript security issues and employ coding practices designed to address them
 
 ### Understanding State Information
 
-• State information
+* State information
   – Information about individual visits to a Web site
-• HTTP original design: stateless
+* HTTP original design: stateless
   –	No persistent data about site visits stored
-• Reasons for maintaining state information
+* Reasons for maintaining state information
   –	Customize individual web pages
   –	Store information within a multipart form
   –	Provide shopping carts
 
 #### Saving State Information with Query Strings
 
-• Query string
+* Query string
   –	Set of name-value pairs
-• Appended to a target URL
+* Appended to a target URL
   –	Consists of a single text string
-• Contains one or more pieces of information
-• Passes information from one web page to another
+* Contains one or more pieces of information
+* Passes information from one web page to another
 ##### Passing data with a query string
 – Add a question mark (?) immediately after a URL; followed by the query string (in name-value pairs) for the information to preserve
 – Ampersands (&) - separates individual name-value pairs within the query string
 *Example:*
-```<a href="http://www.example.com/↵ 
+```html<a href="http://www.example.com/↵ 
    addItem.html?isbn=9780394800165&quantity=2">Order Book</a>```
 
 ##### Parsing Data from a Query String
