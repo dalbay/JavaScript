@@ -52,6 +52,7 @@
 - Passed query string assigned to target web page Location object search property
   - The *Location object* contains information about the current URL.
   –	The *search property* of the Location object contains a URL’s query or search parameters including the (?)
+  **Example :**
 ```JavaScript
 // Get the query string by assigning it to a variable
 var queryData = location.search;
