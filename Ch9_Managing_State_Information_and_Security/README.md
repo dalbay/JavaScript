@@ -115,7 +115,20 @@ if (window.addEventListener) {
   - Special type of form element
   - Not displayed by web browser
   - Syntax: ```<input type="hidden">```
- 
+ ```JavaScript
+           // declare the hiddenInputs variable (reference to all the hidden fields)
+          var hiddenInputs = document.querySelectorAll('input[type=hidden]');
+          // assign each name-value pair as an element in the queryArray variable
+          for(var i = 0; i < queryArray.length; i++){              
+              hiddenInputs[i].value = queryArray[i].substring(queryArray[i].lastIndexOf("=")+1);
+
+          }
+          console.log(hiddenInputs[0].value);
+          console.log(hiddenInputs[1].value);
+		  // OUTPUT:
+		  // app.js:38 Joe
+		  // app.js:39 Dow
+ ```
  
 ##### Example
 Enhance the populateInfo() function to assign values from the queryArray array to the hidden fields (when page loads up.)
