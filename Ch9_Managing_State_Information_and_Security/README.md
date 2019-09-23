@@ -200,23 +200,15 @@ The ```<form>``` element can contain one or more of the following form elements:
 
 | Attribute        | Value           | Description  |
 | ------------- |:-------------:| -----:|
-|accept	|file_type	|Not supported in HTML5.
-Specifies a comma-separated list of file types  that the server accepts (that can be submitted through the file upload)|
-|accept-charset|character_set|	Specifies the character encodings that are to be used for the form submission
-|action	|URL	|Specifies where to send the form-data when a form is submitted
-|autocomplete|	on
-off	|Specifies whether a form should have autocomplete on or off
-|enctype	|application/x-www-form-urlencoded
-multipart/form-data
-text/plain|	Specifies how the form-data should be encoded when submitting it to the server (only for method="post")
-|method	|get
-post|	Specifies the HTTP method to use when sending form-data
-|name	|text	|Specifies the name of a form
-|novalidate|	novalidate	|Specifies that the form should not be validated when submitted
-target|	_blank
-_self
-_parent
-_top	|Specifies where to display the response that is received after submitting the form
+|accept	|file_type	|Not supported in HTML5. Specifies a comma-separated list of file types  that the server accepts (that can be submitted through the file upload)|
+|accept-charset|character_set|	Specifies the character encodings that are to be used for the form submission|
+|action	|URL	|Specifies where to send the form-data when a form is submitted|
+|autocomplete|	on / off |Specifies whether a form should have autocomplete on or off|
+|enctype	|application/x-www-form-urlencoded multipart/form-data text/plain| Specifies how the form-data should be encoded when submitting it to the server (only for method="post")|
+|method	|get post|	Specifies the HTTP method to use when sending form-data|
+|name	|text	|Specifies the name of a form|
+|novalidate|	novalidate	|Specifies that the form should not be validated when submitted|
+target|	_blank - self - _parent - _top	|Specifies where to display the response that is received after submitting the form|
 
 
 
