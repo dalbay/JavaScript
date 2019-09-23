@@ -44,9 +44,9 @@ Passing data to another page with HTML ```<form>``` Tags **```action```** attrib
             </fieldset>
         </form> 
 ```
- ![Form tags action attribute](/images/coockiesImg1.png)
+ ![Form tags action attribute](./images/cookiesImg1.png)
 - When you click the submit button, the data you typed in the input tags will be added as a key/value pair to the query string.
- ![Form tags action attribute](/images/coockiesImg2.png)
+ ![Form tags action attribute](./images/cookiesImg1.png)
 
 ##### Parsing Data from a Query String
 - Passed query string assigned to target web page Location object search property
