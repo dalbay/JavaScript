@@ -133,3 +133,61 @@ if (window.addEventListener) {
 }
 ```
 ### Storing State Information
+#### Storing State Information with Cookies
+- Query strings and hidden form fields temporarily maintain state information
+- Cookies
+  - Small pieces of information about a user
+  - Stored by a web server in text files
+  - Stored on the user’s computer
+  - Saved cookies sent from client to the server
+  - *Temporary Cookies* - Available only for current browser session
+  - *Persistent Cookies* - Stored in a text file on client computer
+
+- Use the cookie property of the Document object 
+  - Creates cookies in name-value pairs
+  - Syntax - ```document.cookie = name + "=" + value;```
+  - Cookie property created with a required name attribute and four optional attributes:
+    - expires, path, domain, secure
+[!Coockies images](./images/cookiesImg)
+
+##### Creating and Modifiying Cookies
+- Cookies cannot include semicolons or special characters
+- Encoding involves converting special characters in a text string
+- *```encodeURIComponent()```* function
+  - Converts special characters in the individual parts of a URI to corresponding     
+    hexadecimal ASCII value
+  - Syntax: ```encodeURIComponent(text)```
+- *```decodeURIComponent()```* function
+  - Counterpart of encodeURIComponent() function
+  - Syntax: ```decodeURIComponent(text)```
+  
+- *```expires```* attribute
+  - Determines how long a cookie can remain on a client system before being deleted
+  - Cookies created without this attribute are available current browser session only
+  - Syntax: ```expires=date```
+  - Can manually type a string in UTC format or:
+	- Can create string with the Date object
+  - Use the toUTCString() method to convert the Date object to a string
+##### Example:
+Create cookies containing the form field names and their values:
+```JavaScript
+function createCookies() {
+   var formFields = document.querySelectorAll("input[type=hidden], input[type=radio], textarea");
+   var expiresDate = new Date();
+   expiresDate.setDate(expiresDate.getDate() + 7);
+   for (var i = 0; i < formFields.length; i++) {
+      var currentValue = decodeURIComponent(formFields[i].value);
+      currentValue = currentValue.replace(/\+/g, " ");
+      document.cookie = formFields[i].name + "=" + currentValue + 
+                        "; expires=" + expiresDate.toUTCString();
+   }
+}
+
+```
+
+
+
+
+
+
+
