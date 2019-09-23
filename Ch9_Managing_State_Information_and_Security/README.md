@@ -32,6 +32,22 @@
 <a href="http://www.example.com/↵ 
    addItem.html?isbn=9780394800165&quantity=2">Order Book</a>
  ```
+**Example**
+Passing data to another page with HTML ```<form>``` Tags **```action```** attribute.
+```HTML
+        <form action="result.html" name="userInput" method="GET" target="_blank" >
+            <fieldset>
+                First Name: <input type="text" id="name" name="fname">
+                Last Name: <input type="text" id="lname" name="lname">
+                <input type="submit" class="btnSubmit" value="Submit">
+                <input type="submit" class="btnSubmit" formaction="/result2.html" value="Submit to another page">
+            </fieldset>
+        </form> 
+```
+[!Form Tag](/images/coockiesImg1.png)
+- When you click the submit button, the data you typed in the input tags will be added as a key/value pair to the query string.
+[!Form Tag](/images/coockiesImg2.png)
+
 
 ##### Parsing Data from a Query String
 - Passed query string assigned to target web page Location object search property
@@ -46,6 +62,7 @@ var queryData = location.search;
 // Remove the opening question mark from the string
 queryData = queryData.substring(1, queryData.length);
 ```
+
 - Convert individual pieces of information into array elements
   –	Using the split() method
 ```JavaScript
@@ -185,7 +202,8 @@ function createCookies() {
 
 ```
 ---
-### HTML ```<form>``` Tag
+
+### NOTES ON: HTML ```<form>``` Tag
 The ```<form>``` element can contain one or more of the following form elements:
 
 * ```<input>```
@@ -208,8 +226,18 @@ The ```<form>``` element can contain one or more of the following form elements:
 |method	|get post|	Specifies the HTTP method to use when sending form-data|
 |name	|text	|Specifies the name of a form|
 |novalidate|	novalidate	|Specifies that the form should not be validated when submitted|
-target|	_blank - self - _parent - _top	|Specifies where to display the response that is received after submitting the form|
 
+#### HTML <form> method Attribute
+##### Notes on GET:
+- Appends form-data into the URL in name/value pairs
+- The length of a URL is limited (about 3000 characters)
+- Never use GET to send sensitive data! (will be visible in the URL)
+- Useful for form submissions where a user want to bookmark the result
+- GET is better for non-secure data, like query strings in Google
+##### Notes on POST:
+- Appends form-data inside the body of the HTTP request (data is not shown is in URL)
+- Has no size limitations
+- Form submissions with POST cannot be bookmarked
 
 
 
