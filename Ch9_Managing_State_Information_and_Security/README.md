@@ -33,7 +33,7 @@
    addItem.html?isbn=9780394800165&quantity=2">Order Book</a>
  ```
  ---
-**Example : ** Passing data to another page with HTML ```<form>``` Tags **```action```** attribute.
+**Example :** Passing data to another page with HTML ```<form>``` Tags **```action```** attribute.
 ```HTML
         <form action="result.html" name="userInput" method="GET" target="_blank" >
             <fieldset>
