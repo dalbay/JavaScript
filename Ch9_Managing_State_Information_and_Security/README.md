@@ -186,17 +186,17 @@ function createCookies() {
 ```
 ---
 ### HTML ```<form>``` Tag
-The <form> element can contain one or more of the following form elements:
+The ```<form>``` element can contain one or more of the following form elements:
 
-* <input>
-* <textarea>
-* <button>
-* <select>
-* <option>
-* <optgroup>
-* <fieldset>
-* <label>
-* <output>
+* ```<input>```
+* ```<textarea>```
+* ```<button>```
+* ```<select>```
+* ```<option>```
+* ```<optgroup>```
+* ```<fieldset>```
+* ```<label>```
+* ```<output>```
 
 | Attribute        | Value           | Description  |
 | ------------- |:-------------:| -----:|
