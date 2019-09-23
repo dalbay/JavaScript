@@ -53,6 +53,7 @@ queryData = queryData.substring(1, queryData.length);
 var queryArray = queryData.split("&");
 ```
 ##### Example
+Create a function that parses the query string and stores the result in an array when page loads up.
 ```JavaScript
 // interpret the document content in strict mode
 "use strict";
@@ -60,6 +61,7 @@ var queryArray = queryData.split("&");
 // global variable
 var queryArray = [];
 
+// function to parse the query string and store the result in an array.
 function populateInfo() {
    // checks if the search property of the Location object has a value;
    if (location.search) {
@@ -71,10 +73,63 @@ function populateInfo() {
    }
 }
 
-// run the setUpPage function when the page finishes loading. 
+// run the populateInfo function when the page finishes loading. 
 if (window.addEventListener) {
-   window.addEventListener("load", setUpPage, false);
+   window.addEventListener("load", populateInfo, false);
 } else if (window.attachEvent) {
-   window.attachEvent("onload", setUpPage);
+   window.attachEvent("onload", populateInfo);
 }
 ```
+#### Saving State Information with Hidden Form Fields
+- Hidden form field
+  - Special type of form element
+  - Not displayed by web browser
+  - Syntax: ```<input type="hidden">```
+ 
+ 
+##### Example
+Enhance the populateInfo() function to assign values from the queryArray array to the hidden fields (when page loads up.)
+```JavaScript
+function populateInfo() {
+   // checks if the search property of the Location object has a value;
+   if (location.search) {
+      var queryData = location.search;
+      // declare the hiddenInputs variable (reference to all the hidden fields)
+      var hiddenInputs = document.querySelectorAll("input[type=hidden]");
+      // copy all but the first character (?) from the queryData variable
+      queryData = queryData.substring(1, queryData.length);
+      // extract each name-value pair from the queryData variable and assign it as an element in the queryArray variable
+      queryArray = queryData.split("&");
+      for (var i = 0; i < queryArray.length; i++) {
+         hiddenInputs[i].value = queryArray[i].substring(queryArray[i].lastIndexOf("=") + 1);
+      }
+   }
+}
+```
+Create a function to parse and display data from the query string on a html page.
+```JavaScript
+function parseData() {
+   //encode characters with their character equivalents first.
+   var formData = decodeURIComponent(location.search);
+   var formArray = [];
+   var list = document.querySelector("div.results ul");
+   formData = formData.substring(1, formData.length);
+   while (formData.indexOf("+") !== -1) {
+      formData = formData.replace("+", " ");
+   }
+   formData = decodeURIComponent(formData);
+   formArray = formData.split("&");
+   for (var i = 0; i < formArray.length; i++) {
+      var newItem = document.createElement("li");
+      newItem.innerHTML = formArray[i];
+      list.appendChild(newItem);
+   }
+ }
+// calls parseData when page finishing loading
+if (window.addEventListener) {
+   window.addEventListener("load", parseData, false);
+} else if (window.attachEvent) {
+   window.attachEvent("onload", parseData);
+}
+```
+### Storing State Information
