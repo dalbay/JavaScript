@@ -110,6 +110,7 @@ if (window.addEventListener) {
    window.attachEvent("onload", populateInfo);
 }
 ```
+---
 #### Saving State Information with Hidden Form Fields
 - Hidden form field
   - Special type of form element
@@ -129,7 +130,7 @@ if (window.addEventListener) {
 		  // app.js:38 Joe
 		  // app.js:39 Dow
  ```
- 
+ ---
 ##### Example
 Enhance the populateInfo() function to assign values from the queryArray array to the hidden fields (when page loads up.)
 ```JavaScript
@@ -149,8 +150,61 @@ function populateInfo() {
    }
 }
 ```
+---
+### Storing State Information
+#### Storing State Information with Cookies
+*Query strings and hidden form fields temporarily maintain state information*
+- Cookies:
+  - Small pieces of information about a user
+  - Stored by a web server in text files
+  - Stored on the user’s computer
+  - Saved cookies sent from client to the server
+  - *Temporary Cookies* - Available only for current browser session
+  - *Persistent Cookies* - Stored in a text file on client computer
+  - Creates cookies in name-value pairs
+  - Syntax - ```document.cookie = name + "=" + value;```
+  - Cookie property created with a required name attribute and four optional attributes:
+    - expires, path, domain, secure
+![Coockies images](./images/cookiesImg.png)
+
+#### Creating and Modifiying Cookies
+- Cookies cannot include semicolons or special characters
+- Encoding involves converting special characters in a text string
+- *```encodeURIComponent()```* function
+  - Converts special characters in the individual parts of a URI to corresponding     
+    hexadecimal ASCII value
+  - Syntax: ```encodeURIComponent(text)```
+- *```decodeURIComponent()```* function
+  - Counterpart of encodeURIComponent() function
+  - Syntax: ```decodeURIComponent(text)```  
+- *```expires```* attribute
+  - Determines how long a cookie can remain on a client system before being deleted
+  - Cookies created without this attribute are available current browser session only
+  - Syntax: ```expires=date```
+  - Can manually type a string in UTC format or:
+	- Can create string with the Date object
+  - Use the toUTCString() method to convert the Date object to a string
+**Example :** Create cookies containing the *form field names* and *their values*:
+```JavaScript
+function createCookies(){
+    var formFields = document.querySelectorAll('input[type=hidden]');
+    var expiresDate = new Date();
+    // add 7 days to expire cookie
+    expiresDate.setDate(expiresDate.getDate() + 7);
+    for(var i = 0; i < formFields.length;i++){ 
+        // decode special characters
+        var currentValue = decodeURIComponent(formFields[i].value);   
+        // create the coockies   
+        document.cookie = formFields[i].name+"="+ currentValue + "; expires="+ expiresDate.toUTCString();
+    }    
+}
+
+```
+---
+##### Example
 Create a function to parse and display data from the query string on a html page.
 ```JavaScript
+//Create a function to parse and display data from the query string on a html page.
 function parseData() {
    //encode characters with their character equivalents first.
    var formData = decodeURIComponent(location.search);
@@ -168,67 +222,14 @@ function parseData() {
       list.appendChild(newItem);
    }
  }
-// calls parseData when page finishing loading
+// calls parseData when page finishes loading
 if (window.addEventListener) {
    window.addEventListener("load", parseData, false);
 } else if (window.attachEvent) {
    window.attachEvent("onload", parseData);
 }
 ```
-### Storing State Information
-#### Storing State Information with Cookies
-- Query strings and hidden form fields temporarily maintain state information
-- Cookies
-  - Small pieces of information about a user
-  - Stored by a web server in text files
-  - Stored on the user’s computer
-  - Saved cookies sent from client to the server
-  - *Temporary Cookies* - Available only for current browser session
-  - *Persistent Cookies* - Stored in a text file on client computer
-
-- Use the cookie property of the Document object 
-  - Creates cookies in name-value pairs
-  - Syntax - ```document.cookie = name + "=" + value;```
-  - Cookie property created with a required name attribute and four optional attributes:
-    - expires, path, domain, secure
-[!Coockies images](./images/cookiesImg)
-
-##### Creating and Modifiying Cookies
-- Cookies cannot include semicolons or special characters
-- Encoding involves converting special characters in a text string
-- *```encodeURIComponent()```* function
-  - Converts special characters in the individual parts of a URI to corresponding     
-    hexadecimal ASCII value
-  - Syntax: ```encodeURIComponent(text)```
-- *```decodeURIComponent()```* function
-  - Counterpart of encodeURIComponent() function
-  - Syntax: ```decodeURIComponent(text)```
-  
-- *```expires```* attribute
-  - Determines how long a cookie can remain on a client system before being deleted
-  - Cookies created without this attribute are available current browser session only
-  - Syntax: ```expires=date```
-  - Can manually type a string in UTC format or:
-	- Can create string with the Date object
-  - Use the toUTCString() method to convert the Date object to a string
-##### Example:
-Create cookies containing the form field names and their values:
-```JavaScript
-function createCookies() {
-   var formFields = document.querySelectorAll("input[type=hidden], input[type=radio], textarea");
-   var expiresDate = new Date();
-   expiresDate.setDate(expiresDate.getDate() + 7);
-   for (var i = 0; i < formFields.length; i++) {
-      var currentValue = decodeURIComponent(formFields[i].value);
-      currentValue = currentValue.replace(/\+/g, " ");
-      document.cookie = formFields[i].name + "=" + currentValue + 
-                        "; expires=" + expiresDate.toUTCString();
-   }
-}
-
-```
 ---
-
 ### NOTES ON: HTML ```<form>``` Tag
 The ```<form>``` element can contain one or more of the following form elements:
 
