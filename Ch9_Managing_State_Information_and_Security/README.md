@@ -186,7 +186,7 @@ function createCookies() {
 ```
 ---
 ### HTML ```<form>``` Tag
-The *<form>* element can contain one or more of the following form elements:
+The <form> element can contain one or more of the following form elements:
 
 * <input>
 * <textarea>
