@@ -200,10 +200,8 @@ The ```<form>``` element can contain one or more of the following form elements:
 
 | Attribute        | Value           | Description  |
 | ------------- |:-------------:| -----:|
-
-
 |accept	|file_type	|Not supported in HTML5.
-Specifies a comma-separated list of file types  that the server accepts (that can be submitted through the file upload)
+Specifies a comma-separated list of file types  that the server accepts (that can be submitted through the file upload)|
 |accept-charset|character_set|	Specifies the character encodings that are to be used for the form submission
 |action	|URL	|Specifies where to send the form-data when a form is submitted
 |autocomplete|	on
