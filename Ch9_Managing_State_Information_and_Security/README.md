@@ -32,42 +32,55 @@
 <a href="http://www.example.com/↵ 
    addItem.html?isbn=9780394800165&quantity=2">Order Book</a>
  ```
-**Example**
-Passing data to another page with HTML ```<form>``` Tags **```action```** attribute.
+ ---
+**Example : ** Passing data to another page with HTML ```<form>``` Tags **```action```** attribute.
 ```HTML
         <form action="result.html" name="userInput" method="GET" target="_blank" >
             <fieldset>
                 First Name: <input type="text" id="name" name="fname">
-                Last Name: <input type="text" id="lname" name="lname">
+                Last Name:  <input type="text" id="lname" name="lname">
                 <input type="submit" class="btnSubmit" value="Submit">
                 <input type="submit" class="btnSubmit" formaction="/result2.html" value="Submit to another page">
             </fieldset>
         </form> 
 ```
- ![Form tags action attribute](./images/cookiesImg1.png)
+![Form tags action attribute](./images/cookiesImg1.png)
 - When you click the submit button, the data you typed in the input tags will be added as a key/value pair to the query string.
- ![Form tags action attribute](./images/cookiesImg1.png)
+![Form tags action attribute](./images/cookiesImg2.png)
 
 ##### Parsing Data from a Query String
 - Passed query string assigned to target web page Location object search property
   - The *Location object* contains information about the current URL.
   –	The *search property* of the Location object contains a URL’s query or search parameters including the (?)
-
-- Remove the question mark
-  - Using the substring() method combined with the length property
 ```JavaScript
-// Assign the query string to the queryData variable
+// Get the query string by assigning it to a variable
 var queryData = location.search;
-// Remove the opening question mark from the string
-queryData = queryData.substring(1, queryData.length);
+console.log(queryData);
+// OUTPUT:
+// ?fname=Joe&lname=Dow
 ```
-
-- Convert individual pieces of information into array elements
-  –	Using the split() method
+- Remove the question mark - Using the *substring() method* combined with the *length property*
 ```JavaScript
-// split queryData into an array
-var queryArray = queryData.split("&");
+// Remove the opening question mark from the string
+queryData = queryData.substring(1,queryData.length);
+console.log(queryData);
+// OUTPUT:
+// fname=Joe&lname=Dow
 ```
+- Convert individual pieces of information into array elements - Using the *split() method*
+```JavaScript
+//Convert individual pieces of information into array elements
+var queryArray = queryData.split("&");
+console.log(queryArray);
+/* OUTPUT:
+(2) ["fname=Joe", "lname=Dow"]
+0: "fname=Joe"
+1: "lname=Dow"
+length: 2
+__proto__: Array(0)
+ */
+```
+---
 ##### Example
 Create a function that parses the query string and stores the result in an array when page loads up.
 ```JavaScript
