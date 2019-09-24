@@ -201,8 +201,8 @@ function createCookies() {
     for (var i = 0; i < formFields.length; i++) {
         // decode special characters
         var currentValue = decodeURIComponent(formFields[i].value);
-        // create the coockies   
-        document.cookie = formFields[i].name + "=" + currentValue + "; expires=" + expiresDate.toUTCString();
+        // create the cookies   
+        document.cookie = formFields[i].name + "=" + encodeURIComponent(currentValue) + "; expires=" + expiresDate.toUTCString();
     }
 }
 // Function to handle the submit
@@ -267,7 +267,7 @@ if (window.addEventListener) {
 - The path attribute is assigned to the cookie property, along with an associated name-value pair, the syntax -```path=path```.
 - Default: cookie available to all web pages in the same directory
 - To make cookie available to all directories on a server Use a slash
-**Example:**
+- **Example:**
 ```JavaScript
 	var username = document.getElementById("username").value; 
 	document.cookie = "username=" + encodeURIComponent(username + "; path=/advertising");
@@ -278,7 +278,7 @@ if (window.addEventListener) {
 - Some web sites are very large and use number of servers. 
 - Sharing cookies across multipe servers use **domain** attribute; the syntax - ```domain=domain```.
 - Cannot share cookies outside of a domain
-**Example:**
+- **Example:**
 ```JavaScript
 	var username = document.getElementById("username").value; 
 	document.cookie = "username=" + encodeURIComponent(username + "; domain=.example.com");
@@ -287,7 +287,7 @@ if (window.addEventListener) {
 #### Securing Cookie Transmissions
 The main protocol used to encrypt data on web sites is Secure Socket Layer, or SSL which will eventually be replaced by Transport Layer Security (TLS). Both SSL and TLS encryption can be used to prevent a man-in-the-middle attach, in which data being exchanged between two parties is read and potentially changed in transit. 
 - **secure** attribute indicates that cookie can only be transmitted across a secure Internet connection; using HTTPS or another security protocol
-**Example:**
+- **Example:**
 ```JavaScript
 	var username = document.getElementById("username").value; 
 	document.cookie = "username=" + encodeURIComponent(username + "; secure=true");
@@ -297,7 +297,7 @@ The cookies for a particular web page are available in the cookie property  of t
 - Decode it using decodeURIComponent() function
 - Use the String object methods to extract individual name-value pairs
 Parsing is similar to query string parsing, except that there is no question mark to remove and individual cookies are separated by a semicolon and a space instead of amperasands.
-**Example:**
+- **Example:**
   - Create three encoded cookies
   - Read them from the cookie property, decode them
   - Use the split() method to copy each name-value pair into cookieArray[] array elements
@@ -305,21 +305,25 @@ Parsing is similar to query string parsing, except that there is no question mar
     - for loop to cycle through array elements
 	- if statement to check name portion of each name-value pair
 ```JavaScript
-document.cookie = "username=" + encodeURIComponent(username);
-document.cookie = "member=" + encodeURIComponent(member); 
-document.cookie = "audio=" + encodeURIComponent(audio);
-var cookieString = decodeURIComponent(document.cookie);
-var cookieArray = cookieString.split("; ");
-
-var currentUsername;
-var unBox = document.getElementById("username");
-for (var i = 0; i < 3; i++) {
-   currentUsername = cookieArray[i];
-   if(currentUsername.substring(0,currentUsername.indexOf("=")) === "username") {
-      unBox.value = currentUsername.substring(currentUsername.indexOf("=") + 1,currentUsername.length);
-      break;
-   }
-}
+	// create the coockies
+	document.cookie = "username=" + encodeURIComponent(username);
+	document.cookie = "member=" + encodeURIComponent(member); 
+	document.cookie = "audio=" + encodeURIComponent(audio);
+	// read & decode
+	var cookieString = decodeURIComponent(document.cookie);
+	// copy each name-value pair
+	var cookieArray = cookieString.split("; ");
+	
+	// determine which cookie holds needed value
+	var currentUsername;
+	var unBox = document.getElementById("username");
+	for (var i = 0; i < 3; i++) {
+	   currentUsername = cookieArray[i];
+	   if(currentUsername.substring(0,currentUsername.indexOf("=")) === "username") {
+		  unBox.value = currentUsername.substring(currentUsername.indexOf("=") + 1,currentUsername.length);
+		  break;
+	   }
+	}
 
 ```
 
