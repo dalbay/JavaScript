@@ -116,6 +116,12 @@ if (window.addEventListener) {
   - Special type of form element
   - Not displayed by web browser
   - Syntax: ```<input type="hidden">```
+ ```HTML
+     <form>
+        <input type="hidden" id="fname" name="fname" />
+        <input type="hidden" id="lname" name="lname" />
+    </form>
+ ```
  ```JavaScript
            // declare the hiddenInputs variable (reference to all the hidden fields)
           var hiddenInputs = document.querySelectorAll('input[type=hidden]');
@@ -132,7 +138,7 @@ if (window.addEventListener) {
  ```
  ---
 ##### Example
-Enhance the populateInfo() function to assign values from the queryArray array to the hidden fields (when page loads up.)
+Enhance the populateInfo() function to assign values from the queryArray array to the **hidden fields**
 ```JavaScript
 function populateInfo() {
    // checks if the search property of the Location object has a value;
@@ -184,25 +190,50 @@ function populateInfo() {
   - Can manually type a string in UTC format or:
 	- Can create string with the Date object
   - Use the toUTCString() method to convert the Date object to a string
-**Example :** Create cookies containing the *form field names* and *their values*:
+##### Example: Creating Cookie with expiresDate attribute & decodeURIComponent() function
+Create cookies containing the *form field names* and *their values*:
 ```JavaScript
-function createCookies(){
+function createCookies() {
     var formFields = document.querySelectorAll('input[type=hidden]');
     var expiresDate = new Date();
     // add 7 days to expire cookie
     expiresDate.setDate(expiresDate.getDate() + 7);
-    for(var i = 0; i < formFields.length;i++){ 
+    for (var i = 0; i < formFields.length; i++) {
         // decode special characters
-        var currentValue = decodeURIComponent(formFields[i].value);   
+        var currentValue = decodeURIComponent(formFields[i].value);
         // create the coockies   
-        document.cookie = formFields[i].name+"="+ currentValue + "; expires="+ expiresDate.toUTCString();
-    }    
+        document.cookie = formFields[i].name + "=" + currentValue + "; expires=" + expiresDate.toUTCString();
+    }
+}
+// Function to handle the submit
+// this function prevents the form from being submitted immediately, then calls the createCookies function,
+// and then fires the submit event on the form.
+function handleSubmit(e) {
+    e.preventDefault();
+    createCookies();
+    document.getElementsByTagName("form" [0].submit());
+}
+// create an event handler to call the handleSubmit function when the form is submitted.
+function createEventListeners() {
+    var form = document.getElementsByTagName("form")[0];
+    form.addEventListener("submit", handleSubmit, false);
+}
+// create an event handler for the form that calls the handleSubmit() function
+function setUpPage() {
+    createEventListeners();
+    getQueryString();
+    parseData();
+}
+// when page finishes loading ->
+if (window.addEventListener) {
+    window.addEventListener("load", setUpPage, false);
+} else if (window.attachEvent) {
+    window.attachEvent("onload", setUpPage);
 }
 
 ```
 ---
-##### Example
-Create a function to parse and display data from the query string on a html page.
+##### Example : Create a function to parse and display data from the query string on a html page.
 ```JavaScript
 //Create a function to parse and display data from the query string on a html page.
 function parseData() {
@@ -230,6 +261,7 @@ if (window.addEventListener) {
 }
 ```
 ---
+#### Configuring Availability of Cookies to Other Web Pages on the Server
 ### NOTES ON: HTML ```<form>``` Tag
 The ```<form>``` element can contain one or more of the following form elements:
 
