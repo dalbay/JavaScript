@@ -326,7 +326,17 @@ Parsing is similar to query string parsing, except that there is no question mar
 	}
 
 ```
-
+#### Deleting Cookies
+When a user closes a browser tab or window, any temporary cookie associated with the session are deleted, while persistent cookies remain on the user's computer until they expire. In some cases, however, persistent cookies need to be deleted.
+- **Deleting Cookies with JavaScript** : you must set its expiration to a date in the past.
+- **Example**:
+```JavaScript
+	var expiresDate = new Date();
+	var username = document.getElementById("username").value;
+	expiresDate.setDate(expiresDate.getDate() - 7);   // set the expires attribute to one week ago will delete the cookie
+	document.cookie = "username=" + encodeURIComponent(username) + "; expires=" + expiresDate.toUTCString();
+```
+- **Deleting Cookies from Your Browser** :
 
 
 
