@@ -383,10 +383,16 @@ When a user closes a browser tab or window, any temporary cookie associated with
 #### The Same Origin Policy
 Another JavaScript security feature restricts how a JavaScript code in one window, tab, or frame accesses a web page in another window, tab, or frame on a client computer. Under the **same origin policy**, windows, tabs, and frames can view and modify the elements and properties of documents displayed in other windows, tabs, and frames only if they share the same protocol (such as HTTP) and exist on the same web server.  
 The same origin policy prevents malicious scripts from modifying the content of other windows and tabs and prevents the theft of private browser information and information displayed on secure web pages.  
+For example, documents from the following two domains cannot access each other's elements and properties because they use different protocols.
+``` http://www.example.com
+	https://www.example.com
+```
 
-In some circumstances, you might want two documents from related web sites on different servers to be able to access each other's elements and properties. To allow documents from different origins in the same domain to access each other's elements and properties, you use the ```domain``` property of the ```Document``` object. The **```domain property```** of the ```Document``` object changes the origin of a document to its root domain name by using the statement  
-  ```document.domain = "domain"  
-  Adding the statement ```document.domain = "example.com"; to documents from both marketing.example.com and content.example.com allows the documents to access each other's elements and properties, even though they are located on different servers. 
+In some circumstances, you might want two documents from related web sites on different servers to be able to access each other's elements and properties. To allow documents from different origins in the same domain to access each other's elements and properties, you use the ```domain``` property of the ```Document``` object. The **```domain property```** of the ```Document``` object changes the origin of a document to its root domain name by using the statement:
+- ```JavaScript 
+	document.domain = "domain"  
+```
+Adding the statement ```document.domain = "example.com";``` to documents from both marketing.example.com and content.example.com allows the documents to access each other's elements and properties, even though they are located on different servers. 
 
 #### Using Third-Party Scripts
 In some cases you want scripts from other domains, known as **third-party scripts**, to be able to run on your web page. For instance, some companies provide widgets, that you can add to your web pages but that run from the provider's web server. Another common situation requiring third-party scripts is the use of a **content delivery network (CDN), which is a company that maintains web services optimized for fast delivery of content.  
