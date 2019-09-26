@@ -14,7 +14,7 @@
   –	Store information within a multipart form
   –	Provide shopping carts
 
-### Saving State Information with **Query Strings**
+### Saving State Information with Query Strings
 
 * Query string
   –	Set of name-value pairs
@@ -23,7 +23,7 @@
 * Contains one or more pieces of information
 * Passes information from one web page to another
 
-##### Passing data with a query string
+#### Passing data with a Query String
 
 - Add a question mark (?) immediately after a URL; followed by the query string (in name-value pairs) for the information to preserve
 - Ampersands (&) - separates individual name-value pairs within the query string
@@ -48,7 +48,7 @@
 - When you click the submit button, the data you typed in the input tags will be added as a key/value pair to the query string.
 ![Form tags action attribute](./images/cookiesImg2.png)
 
-##### Parsing Data from a Query String
+#### Parsing Data from a Query String
 - Passed query string assigned to target web page Location object search property
   - The *Location object* contains information about the current URL.
   –	The *search property* of the Location object contains a URL’s query or search parameters including the (?)
@@ -111,7 +111,7 @@ if (window.addEventListener) {
 }
 ```
 ---
-#### Saving State Information with Hidden Form Fields
+### Saving State Information with Hidden Form Fields
 - Hidden form field
   - Special type of form element
   - Not displayed by web browser
@@ -157,8 +157,8 @@ function populateInfo() {
 }
 ```
 ---
-### Storing State Information
-#### Storing State Information with Cookies
+## Storing State Information
+### Storing State Information with Cookies
 *Query strings and hidden form fields temporarily maintain state information*
 - Cookies:
   - Small pieces of information about a user
@@ -338,6 +338,59 @@ When a user closes a browser tab or window, any temporary cookie associated with
 	document.cookie = "username=" + encodeURIComponent(username) + "; expires=" + expiresDate.toUTCString();
 ```
 - **Deleting Cookies from Your Browser** : Ctrl + H in Chrome
+
+
+### Storing State Information with the Web Storage API
+- Web Storage:
+  - functionallity to browsers by creating a standard to replace cookies.
+  - not supported by older browsers
+  - Cookies are still the standard  
+  - Storing/reading Web Storage easier than cookies
+
+- Web Storage includes two properties of Window object
+  - **```localStorage```** - remains until you code to delete it; similar to persistent cookies
+  - **```sessionStorage```** - removed automatically when user closes browser tab or window; like temporary cookies
+  ![Web Storage properties](./images/cookiesImg4.png)  
+
+  Example:
+  ```JavaScript
+    localStorage.setItem(fname, firstName);
+    localStorage.removeItem(fname);
+  ```
+
+## Understanding Security Issues
+- Security threats - Viruses, worms, data theft by hackers
+- Consider web server security and secure coding.
+  - Web server security technologies - Firewalls; Secure Socket Layer (SSL)
+  - secure coding/defensive coding - refer to writing code in a way that minimizes any intentional or accidential security issues.
+- JavaScript programs downloaded and execute locally
+
+#### JavaScript Security Concerns
+1. Protection of a web page and JavaScript prgram against malicious tampering
+   - **Code Injection attack**: JavaScript code that is not written securely is vulnerable to a code injection attack, in which a program or user enters JavaScript code that changes the function of the web page.  
+(For instance, a malicious program could open a web page containing a form and enter JavaScript code in one of the form fields designed to retrieve sensitive information from the server. Such a program could then relay this infromation to a person other than the owner.)
+  - Validating forms before submission is an important part of preventing injection attacks.
+  - Escape characters in form field values that could be part of malicious code, which involves converting the characters to their character code equivalents, as you do when URL encoding cookie data. For form input, escaping is generally performed by the web server before processing user input. 
+2. Privacy of individual client information in the web browser window.
+   - Your contact information and and browsing history are valuable pieces of information that many advertisers would like to access. Without security restrictions, a JavaScript program could read this infromation from your web browser. 
+3. Protection of the local file system of the client or web site from theft or tampering 
+**Important JavaScript security featue:**
+  - Lack of certain type of functionality:
+    - File manipulation - JavaScript does not allow any file manipulation aside from cookies, Web Storage, and a few other emerging standards, which are site specific. This prevents mischevious scripts from stealing information or causing damage by changing or deleting files; (certain programming languages include objects and methods that make it possible for a program to read, write, and delete files.)
+    - Create a network connection - this limitation prevents JavaScript programs from infiltration a private network or intranet from which information may be stolen or damaged.
+    - Cannot run system commands or execute programs on a client.
+
+#### The Same Origin Policy
+Another JavaScript security feature restricts how a JavaScript code in one window, tab, or frame accesses a web page in another window, tab, or frame on a client computer. Under the **same origin policy**, windows, tabs, and frames can view and modify the elements and properties of documents displayed in other windows, tabs, and frames only if they share the same protocol (such as HTTP) and exist on the same web server.  
+The same origin policy prevents malicious scripts from modifying the content of other windows and tabs and prevents the theft of private browser information and information displayed on secure web pages.  
+
+In some circumstances, you might want two documents from related web sites on different servers to be able to access each other's elements and properties. To allow documents from different origins in the same domain to access each other's elements and properties, you use the ```domain``` property of the ```Document``` object. The **```domain property```** of the ```Document``` object changes the origin of a document to its root domain name by using the statement  
+  ```document.domain = "domain"  
+  Adding the statement ```document.domain = "example.com"; to documents from both marketing.example.com and content.example.com allows the documents to access each other's elements and properties, even though they are located on different servers. 
+
+#### Using Third-Party Scripts
+In some cases you want scripts from other domains, known as **third-party scripts**, to be able to run on your web page. For instance, some companies provide widgets, that you can add to your web pages but that run from the provider's web server. Another common situation requiring third-party scripts is the use of a **content delivery network (CDN), which is a company that maintains web services optimized for fast delivery of content.  
+To enable a third-party script in a web document, you simply include a script element with a src value pointing to the third-party content. 
 
 
 
