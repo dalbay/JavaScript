@@ -33,5 +33,14 @@ PHP code to retreive data from the forecast.io service:
 ?>
 ```
 ### Running Ajax from a Web Server
+- Opening a local file in a web browser requires the use of the ```file:///``` protocol. 
+- Ajax relies on the XMLHttpRequest object to retreive data, you must open your Ajax file from a web server with the HTTP (```http://```) or HTTPS (```https://```) protocol. 
+- Can install server software on any computer
+- Popular web server software:
+  - Apache HTTP Server
+  - Nginx
+  - Microsoft Internet Information Services (IIS)
+
+
 
 
