@@ -140,7 +140,7 @@ if (!curRequest) {
 - Use the ```open()``` method with the instantiated ```XMLHttpRequest``` object to specify the request method (GET or POST) and URL
 - ```open()``` method accepts three optional arguments - ```async, username, password```
 - ```abort()``` method used to cancel any existing HTTP requests before beginning a new one
-- ```send() method - submit the request to the server; accepts a single argument containing the message body
+- ```send()```s method - submit the request to the server; accepts a single argument containing the message body
 - POST requests more involved
   - Must manually build name-value pairs to submit
   - Must submit at least ```Content-Type``` header before ```send()``` method
@@ -149,6 +149,31 @@ if (!curRequest) {
 #### Receiving Server Data
 - ```responseXML``` property - contains the HTTP response as an XML document only if server response includes the ```Content-Type``` header with a MIME type value of ```text/xml```
 - ```responseText property``` - Contains the HTTP response as a text string
+#### Processing XML Data in a Response
+- Assign property values to document nodes
+  - Assign value of responseXML property to a variable
+  - Use innerHTML and node properties to assign values of XML document stored in variable to appropriate elements
+#### Processing Text Data in a Response
+- ```responseText``` value almost always a JSON string
+  - First use ```JSON.parse()``` to convert to object
+  - Then access property values of new object and add to DOM elements
+
+#### Sending and Receiving Synchronous Requests and Responses
+- Synchronous request - Stops the processing of the JavaScript code until a response returned from the server
+- Check ```XMLHttpRequest``` object’s ```status``` property value
+  - Ensure response received successfully
+- Synchronous responses - Easier to handle; drawback is that script will not continue processing until the response is received
+- Asynchronous request - Allows JavaScript to continue processing while it waits for a server response
+- Create an asynchronous request
+  - Pass a value of ```true``` as the third argument of the ```open()``` method, or omit the argument altogether
+- Receive a response - Use the ```XMLHttpRequest``` object’s ```readyState``` property and ```onreadystatechange``` event
+- Example:
+```JavaScript
+    stockRequest.abort();
+    stockRequest.open("get","StockCheck.php?" + "checkQuote=" + tickerSymbol, true);
+    stockRequest.send(null);
+    stockRequest.onreadystatechange = fillStockInfo;
+```
 
 
 
