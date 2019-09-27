@@ -202,7 +202,30 @@ function fillStockInfo() {
 - Two alternatives to proxies for working around same-origin policy
   - JSON-P (JSON with padding) - Requests JSON content using a script element rather than an XHR object
   - CORS (Cross-Origin Resource Sharing) - Server sends special response header that indicates data may be used on other domains
+![http methods images](./images/httpImg6.png)
 
+#### Updating Content with JSON-P
+- script element not subject to same-origin policy
+- Program running on web server returns content
+  - JSON object treated as parameter for function call
+  - Called function processes JSON object
+
+- JSON-P URL generally consists of 2 parts:
+  - Request information - URL of service, parameters
+  - Callback query string - Keyword (usually "callback") & name of function to call
+- JSON-P opens a security hole in your website
+  - If data source compromised, content you receive is a potential attack route on your site
+  - Use JSON-P only with web service you trust
+- JSON-P exposes API key or password to end users
+  - Use only with trusted users, such as employees
+- Cross-domain request within an XHR object
+- Part of XMLHttpRequest2 specification
+  - Additional properties, methods, and events for XHR object
+- Enables content provider to convey permission
+  - Access-Control-Allow-Origin HTTP response header
+    - Value includes requesting domain
+  - XDomainRequest object (Microsoft)
+    - Must check first if browser defines this object
 
 
 
