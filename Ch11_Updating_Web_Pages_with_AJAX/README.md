@@ -109,6 +109,33 @@ Using Ajax to update data involves 4 steps:
   - Key to incorporating Ajax in JavaScript code
   - Allows use of use JavaScript and HTTP to exchange data between a web browser and a web server
 ![http methods images](./images/httpImg4.png)
+![http methods images](./images/httpImg5.png)
+
+#### Instantiating an XMLHttpRequest Object
+- Use the XMLHttpRequest constructor   
+    ```var httpRequest = new XMLHttpRequest();```
+- Most JavaScript programmers use a series of nested ```try/catch``` statements
+- Opening and closing HTTP connections is a bottleneck in page loading
+- Can make Ajax programs faster by reusing an instantiated XMLHttpRequest object
+```JavaScript
+var curRequest = false;
+var httpRequest;
+function getRequestObject() {
+   try {
+      httpRequest = new XMLHttpRequest();
+   }
+  catch (requestError) { 
+      document.getElementById("main").innerHTML = "Your↵
+         browser does not support this content";
+      return false;
+   }
+   return httpRequest;
+}
+if (!curRequest) {
+   curRequest = getRequestObject();
+}
+
+```
 
 
 
