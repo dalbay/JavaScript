@@ -100,6 +100,16 @@ Using Ajax to update data involves 4 steps:
   - 4xx: (client error) - Request cannot be fulfilled due to a client error
   - 5xx: (server error) - Request cannot be fulfilled due to a server error
 ![http methods images](./images/httpImg3.png)
+- Zero or more response headers follow the status line
+- Response returned from a server
+  - Can be much more involved than original request that generated it
+
+#### Requesting Server Data
+- ```XMLHttpRequest``` object
+  - Key to incorporating Ajax in JavaScript code
+  - Allows use of use JavaScript and HTTP to exchange data between a web browser and a web server
+![http methods images](./images/httpImg4.png)
+
 
 
 
