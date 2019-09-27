@@ -159,11 +159,15 @@ if (!curRequest) {
   - Then access property values of new object and add to DOM elements
 
 #### Sending and Receiving Synchronous Requests and Responses
-- Synchronous request - Stops the processing of the JavaScript code until a response returned from the server
-- Check ```XMLHttpRequest``` object’s ```status``` property value
-  - Ensure response received successfully
-- Synchronous responses - Easier to handle; drawback is that script will not continue processing until the response is received
-- Asynchronous request - Allows JavaScript to continue processing while it waits for a server response
+- Synchronous request 
+  - Stops the processing of the JavaScript code until a response returned from the server
+  - Check ```XMLHttpRequest``` object’s ```status``` property value
+    - Ensure response received successfully
+- Synchronous responses 
+  - Easier to handle; drawback is that script will not continue processing until the response is received
+#### Sending and Receiving Asynchronous Requests and Responses
+- Asynchronous request 
+  - Allows JavaScript to continue processing while it waits for a server response
 - Create an asynchronous request
   - Pass a value of ```true``` as the third argument of the ```open()``` method, or omit the argument altogether
 - Receive a response - Use the ```XMLHttpRequest``` object’s ```readyState``` property and ```onreadystatechange``` event
@@ -188,6 +192,7 @@ function fillStockInfo() {
    }
 }
 ```
+#### Refreshing Server Data Automatically
 
 
 
