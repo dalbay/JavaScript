@@ -136,6 +136,20 @@ if (!curRequest) {
 }
 
 ```
+#### Opening and Sending a Request
+- Use the ```open()``` method with the instantiated ```XMLHttpRequest``` object to specify the request method (GET or POST) and URL
+- ```open()``` method accepts three optional arguments - ```async, username, password```
+- ```abort()``` method used to cancel any existing HTTP requests before beginning a new one
+- ```send() method - submit the request to the server; accepts a single argument containing the message body
+- POST requests more involved
+  - Must manually build name-value pairs to submit
+  - Must submit at least ```Content-Type``` header before ```send()``` method
+  - Also should submit ```Content-Length``` header and ```Connection``` header
+
+#### Receiving Server Data
+- ```responseXML``` property - contains the HTTP response as an XML document only if server response includes the ```Content-Type``` header with a MIME type value of ```text/xml```
+- ```responseText property``` - Contains the HTTP response as a text string
+
 
 
 
