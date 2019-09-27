@@ -174,7 +174,20 @@ if (!curRequest) {
     stockRequest.send(null);
     stockRequest.onreadystatechange = fillStockInfo;
 ```
+- Value assigned to the ```readyState``` property updated automatically according to the current statement of the HTTP request. If property assigned a value of 4 - response finished loading
 
+- Example:
+```JavaScript
+function fillStockInfo() {
+   if (stockRequest.readyState === 4 && stockRequest.status↵
+      === 200) {
+      var stockValues = stockRequest.responseText;
+      document.getElementById("ticker").innerHTML =↵
+         stockValues.ticker;
+      ...
+   }
+}
+```
 
 
 
