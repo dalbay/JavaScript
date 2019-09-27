@@ -193,6 +193,15 @@ function fillStockInfo() {
 }
 ```
 #### Refreshing Server Data Automatically
+- Automatically refresh data obtained from an HTTP server
+  - Use JavaScript’s ```setTimeout()``` or ```setInterval()``` methods
+    - Send request to the server
+    - Read and process the data returned from the server
+
+#### Creating Cross-Domain Requests Without a Proxy Server
+- Two alternatives to proxies for working around same-origin policy
+  - JSON-P (JSON with padding) - Requests JSON content using a script element rather than an XHR object
+  - CORS (Cross-Origin Resource Sharing) - Server sends special response header that indicates data may be used on other domains
 
 
 
