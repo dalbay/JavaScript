@@ -17,11 +17,25 @@ The purpose of the same-origin policy is to prevent malicious scripts from modif
 Instead of implementing an API to access and display content from a web service, some companies offer prepacked code known as **widgets** that enable to add content from the service to a web document. Widgets often contain code that uses Ajax to fetch and update content from the service.  
 When you incorporate data from a web service into an app that runs in a browser, you need to know only which method of the web service to call for each type of commodity.  
 
+### Running Ajax from a Web Server
+- Opening a local file in a web browser requires the use of the ```file:///``` protocol. 
+- Ajax relies on the XMLHttpRequest object to retreive data, you must open your Ajax file from a web server with the HTTP (```http://```) or HTTPS (```https://```) protocol. 
+- Can install server software on any computer
+- Popular web server software:
+  - Apache HTTP Server
+  - Nginx
+  - Microsoft Internet Information Services (IIS)
+
+---
+##### The Whole Spectrum Energy Solution App:
 For the Whole Spectrum Energy Solution app, you'll request and use data from forecast.io, a web service that provides real-time weather data, including a forecast, for a specified location. A forecast.io request has the following format:  
 ``` https://api.forecast.io/forecast/apikey/latitude,longitude```  
+<br/>
 The **apikey** term represents an API key, which is a unique identifier assigned by the service to each person or organization that wants to access the service. Unlike Google Maps, which allows a limited number of requests per day without an API key, all forecast.io requests must include an API key.  
+<br/>
 The latitude and longitude terms represent latitude and longitute values provided as positive or negative floating-point numbers.  
 The data returned by forecast.io is a string representation of a JSON object. You can use the ```JSON.parse()``` method to convert the returned string to a JavaScript object.  
+<br/>
 This web app will rely on a server-side script as a proxy to retreive weather infromation from forecast.io. This script is written in **PHP**, which is a programming language specifically designed to run on web servers. Your PHP proxy script executes when it is passed latitude and longitude values with the ```XMLHttpRequest``` object. After the PHP script retrieves the weather infromation for the specified coordinates, it returns the data to the JavaScript code that called it.  
 PHP code to retreive data from the forecast.io service:
 ```PHP
@@ -32,15 +46,5 @@ PHP code to retreive data from the forecast.io service:
     readfile($WeatherSource);
 ?>
 ```
-### Running Ajax from a Web Server
-- Opening a local file in a web browser requires the use of the ```file:///``` protocol. 
-- Ajax relies on the XMLHttpRequest object to retreive data, you must open your Ajax file from a web server with the HTTP (```http://```) or HTTPS (```https://```) protocol. 
-- Can install server software on any computer
-- Popular web server software:
-  - Apache HTTP Server
-  - Nginx
-  - Microsoft Internet Information Services (IIS)
-
-
 
 
