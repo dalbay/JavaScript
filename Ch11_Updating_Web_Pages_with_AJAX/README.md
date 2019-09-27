@@ -42,19 +42,64 @@ Using Ajax to update data involves 4 steps:
 4. Process the data returned from the server, and incorporate the data into the app. 
 
 ### Understanding HTTP Messages
-- HTTP messages - HTTP client requests and server responses
+#### HTTP messages :
+- HTTP client requests and server responses
 - HTTP client opens a connection to the server 
   - Submits a request message
   - Web server returns a response message appropriate to the request type
 - Format:
 ```
-Start line (request method or status returned)
-Header lines (zero or more)
-Blank line  
+    Start line (request method or status returned)
+    Header lines (zero or more)
+    Blank line  
 
-Message body (optional)
+    Message body (optional)
 ```
+#### Headers :
+- Define information about the request or response message and about the contents of the message body
+- 47 HTTP 1.1 headers
+  - generic headers used in request or response messages
+  - headers specific to a request, response, or message body
+- Format for using a header:
+```
+    header: value
+```
+- ```Cache-Control``` header :
+- Specifies how a web browser should cache any server content it receives
+- Caching :
+  - Temporary storage of data for faster access
+  - Web browser attempts to locate any necessary data in its cache before making a request from a web server
+  - goes against the reason for using Ajax
+  - Include ```Cache-Control: no-cache```
+- Blank line always follows last header line
+  - Optional: message body can follow the blank line in the messages
+- Most common types of HTTP requests
+  - ```GET``` and ```POST```
+- Other HTTP request methods
+  - ```HEAD, DELETE, OPTIONS, PUT```, and ```TRACE```
+- Can use browser tools to examine HTTP headers
 
+#### Sending HTTP Requests
+- ```GET``` method
+  - Used for standard web page requests
+  - Can have a query string or form data appended to the URL
+- ```POST``` request
+  - Similar to a GET request except that any submitted data is included in the message body
+    - Immediately following the blank line after the last header
+![http methods images](./images/httpImg2.png)
+
+#### Receiving HTTP Response
+- HTTP response messages
+  - Take the same format as request messages
+  - Return protocol and version of the HTTP server
+    - Along with a status code and descriptive text
+- Status codes format
+  - 1xx: (informational) - Request received
+  - 2xx: (success) - Request successful
+  - 3xx: (redirection) - Request cannot be completed without further action
+  - 4xx: (client error) - Request cannot be fulfilled due to a client error
+  - 5xx: (server error) - Request cannot be fulfilled due to a server error
+![http methods images](./images/httpImg3.png)
 
 
 
