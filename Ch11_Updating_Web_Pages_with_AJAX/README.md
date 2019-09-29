@@ -109,10 +109,10 @@ When you incorporate data from a web service into an app that runs in a browser,
   - 3xx: (redirection) - Request cannot be completed without further action
   - 4xx: (client error) - Request cannot be fulfilled due to a client error
   - 5xx: (server error) - Request cannot be fulfilled due to a server error
-
+<br/>
 
 ## Requesting Server Data
-- ```XMLHttpRequest``` object is the key to incorporating Ajax in JavaScript code because it allows use to use JavaScript and HTTP to exchange data between a web browser and a web server
+- **```XMLHttpRequest```** object is the key to incorporating Ajax in JavaScript code because it allows use to use JavaScript and HTTP to exchange data between a web browser and a web server
 - More specifically, *you can use the methods and properties of an instantiated **```XMLHtppRequest```** object with JavaScript to build and send request messages, and to receive and process response messages.*  
 
 ***The ```XMLHtppRequest```*** object contains the methods listed below:
@@ -150,6 +150,10 @@ if (!curRequest) {
 }
 
 ```
+
+
+
+
 #### Opening and Sending a Request
 - Use the ```open()``` method with the instantiated ```XMLHttpRequest``` object to specify the request method (GET or POST) and URL
 - ```open()``` method accepts three optional arguments - ```async, username, password```
@@ -279,19 +283,40 @@ PHP code to retreive data from the forecast.io service:
 5. Examine the response headers using developer tools:   
 ![http request header](./images/httpImg10.png)  
 <br/>
+
 Here we saw the basics of HTTP requests and reponses.  
-Examine the solar.php file, which you'll use as a proxy for your cross-domain request. You'll then request your own API key from the forecast.io web service, and you'll finalize the solar.php file by incorporating your API key into the URL for the HTTP request. 
+Examine the solar.php file, which you'll use as a proxy for your cross-domain request. You'll then request your own API key from the forecast.io web service, and you'll finalize the solar.php file by incorporating your API key into the URL for the HTTP request.  
 6. Obtain an API key for forecast.io and incorporate it into the solar.php file:
-   - open solar.php
    - Line 2 replace the placeholder 'apikey' with an actual API key.
    - Line 6 uses the PHP readfile() function to return the forecast data as the body of the HTTP response.
-   - register to developer.forecast.io; copy the API key; replace it with the placeholder in your proxy file
+   - register to developer.forecast.io; copy the API key; replace it with the placeholder in your proxy file  
+
 Your final configuration of the PHP file for your proxy server should look like this:
-```PHP
+```php
     <?php
     $WeatherSource = "https://api.forecast.io/forecast/773920fad47b82d3eda1b1bfb2daf84a/" . $_GET["lat"] . "," . $_GET["lng"];
     header("Content-Type: application/json");
     header("Cache-Control: no-cache");
     readfile($WeatherSource);
     ?>
+```
+7. Instantiate an XMLHtppRequest object:
+   -  Near the top of your script.js document, add a global variable:
+```JavaScript
+	var httpRequest = false
+```
+   - Below the global variable declarations, create this function:
+```JavaScript
+	function getRequestObject(){
+		try{
+			httpRequest = new XMLHtppRequest();
+			
+		}catch{
+			document.querySelector("p.error").innerHTML = "Forecast not supported by your browser.";
+			document.querySelector("p.error").style.display = "block";
+			return false;
+		
+		}
+		return httpRequest;
+	}
 ```
