@@ -76,11 +76,12 @@ One generic header that requires special metion for Ajax applications is the Cac
   - ```HEAD, DELETE, OPTIONS, PUT```, and ```TRACE```
 - Can use browser tools to examine HTTP headers
 
-#### Sending HTTP Requests
-- ```GET``` method
-  - Used for standard web page requests
-  - Can have a query string or form data appended to the URL
-- ```POST``` request
+### Sending HTTP Requests
+***GET method***  
+- Used for standard web page requests
+- Can have a query string or form data appended to the URL  
+When requesting a URL, most web browsers include the headers listed in the next table:
+***POST method***
   - Similar to a GET request except that any submitted data is included in the message body
     - Immediately following the blank line after the last header
 ![http methods images](./images/httpImg2.png)
@@ -257,4 +258,5 @@ PHP code to retreive data from the forecast.io service:
      You'll complete the function to submit Ajax request to forecast.io using the latitude and longitute values to get weather forecast data for the relevant city. 
 3. Open solar.html in the browser and examine the network requests and responses related to the current document.
 ![http network request/response](./images/httpImg7.png)
-
+4. Examine the request header in your developer tools:
+![http request header](./images/httpImg9.png)
