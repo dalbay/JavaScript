@@ -82,9 +82,10 @@ One generic header that requires special metion for Ajax applications is the Cac
 - Can have a query string or form data appended to the URL  
 
 When requesting a URL, most web browsers include the headers listed in the next table:  
-![http methods images](./images/httpImg2.png)  
+![http get methods images](./images/httpImg.png)  
 ***POST method***  
-- Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table: 
+- Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table:  
+![http post methods images](./images/httpImg1.png)  
 
 
 #### Receiving HTTP Response
