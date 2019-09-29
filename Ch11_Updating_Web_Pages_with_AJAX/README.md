@@ -34,37 +34,33 @@ When you incorporate data from a web service into an app that runs in a browser,
   - Nginx
   - Microsoft Internet Information Services (IIS)
 
-### Working with HTTP
-Using Ajax to update data involves 4 steps:
+## Working with HTTP
+**Using Ajax to update data involves 4 steps:**
 1. Instantiate an ```XMLHttpRequest``` object for the web browser where the script will run.
 2. Use the ```XMLHttpRequest object to send a request to the server.
 3. Receive the response from the server containing the requested data.
 4. Process the data returned from the server, and incorporate the data into the app. 
 
 ### Understanding HTTP Messages
-#### HTTP messages :
+***HTTP messages :***  
 - HTTP client requests and server responses
 - HTTP client opens a connection to the server 
   - Submits a request message
   - Web server returns a response message appropriate to the request type
-- Format:
-```
-    Start line (request method or status returned)
-    Header lines (zero or more)
-    Blank line  
 
-    Message body (optional)
-```
-#### Headers :
+***Headers :***  
 - Define information about the request or response message and about the contents of the message body
-- 47 HTTP 1.1 headers
-  - generic headers used in request or response messages
-  - headers specific to a request, response, or message body
 - Format for using a header:
 ```
     header: value
 ```
-- ```Cache-Control``` header :
+For example - the following lines define two generic headers that can be used in either request or response messages, Connection and Date:  
+```
+    Connection: close
+    Date: Wed, 11 June 2019 13:32:04 GMT
+```
+One generic header that requires special metion for Ajax applications is the Cache-Control header, which specifies how a web browser should cache any server content it receives.  
+***```Cache-Control``` Header :***
 - Specifies how a web browser should cache any server content it receives
 - Caching :
   - Temporary storage of data for faster access
