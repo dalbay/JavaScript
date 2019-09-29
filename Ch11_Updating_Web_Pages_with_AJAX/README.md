@@ -26,6 +26,7 @@ Instead of implementing an API to access and display content from a web service,
 When you incorporate data from a web service into an app that runs in a browser, you need to know only which method of the web service to call for each type of commodity.  
 
 ### Running Ajax from a Web Server
+
 - Opening a local file in a web browser requires the use of the ```file:///``` protocol. 
 - Ajax relies on the XMLHttpRequest object to retreive data, you must open your Ajax file from a web server with the HTTP (```http://```) or HTTPS (```https://```) protocol. 
 - Can install server software on any computer
@@ -33,8 +34,9 @@ When you incorporate data from a web service into an app that runs in a browser,
   - Apache HTTP Server
   - Nginx
   - Microsoft Internet Information Services (IIS)
-
+<br/>
 ## Working with HTTP
+
 **Using Ajax to update data involves 4 steps:**
 1. Instantiate an ```XMLHttpRequest``` object for the web browser where the script will run.
 2. Use the ```XMLHttpRequest object to send a request to the server.
@@ -54,20 +56,23 @@ When you incorporate data from a web service into an app that runs in a browser,
 ```
     header: value
 ```
-For example - the following lines define two generic headers that can be used in either request or response messages, Connection and Date:  
+- *Example* - the following lines define two generic headers that can be used in either request or response messages, Connection and Date:  
 ```
     Connection: close
     Date: Wed, 11 June 2019 13:32:04 GMT
 ```
 ***Cache-Control Header :***  
-One generic header that requires special metion for Ajax applications is the Cache-Control header, which specifies how a web browser should cache any server content it receives.  
+- One generic header that requires special metion for Ajax applications is the Cache-Control header, which specifies how a web browser should cache any server content it receives.  
 
 - Caching :
   - Temporary storage of data for faster access
   - web browsers try to reduce the amount of data that needs to be retrieved from a server by caching retrieved data on a local computer.
   - If caching is enabled in a web browser, the web browser will attempt to locate any necessary data in its cache before making a request from a web server
-  - this goes against the reason for using Ajax, which is dynamically update portions of a web page with the most recent data from a server. For this reason, you should always include the ```Cache-Control``` header when creating an Ajax connection, and you should assign it a value of ```no-cache```.
-  - Include ```Cache-Control: no-cache```
+  - this goes against the reason for using Ajax, which is dynamically update portions of a web page with the most recent data from a server. For this reason, you should always include the ```Cache-Control``` header when creating an Ajax connection, and you should assign it a value of **```no-cache```**.
+  - Include ```header("Cache-Control: no-cache");```
+<br/>
+
+***Note :***  
 - Blank line always follows last header line
   - Optional: message body can follow the blank line in the messages
 - Most common types of HTTP requests
@@ -76,14 +81,17 @@ One generic header that requires special metion for Ajax applications is the Cac
   - ```HEAD, DELETE, OPTIONS, PUT```, and ```TRACE```
 - Can use browser tools to examine HTTP headers
 <br/>
-### Sending HTTP Requests
+
+### Sending HTTP Requests  
+
 ***GET method***  
 - Used for standard web page requests
 - Can have a query string or form data appended to the URL  
 
-When requesting a URL, most web browsers include the headers listed in the next table:  
+*When requesting a URL, most web browsers include the headers listed in the next table:*
 ![http get methods images](./images/httpImg.png)  
 <br/>
+
 ***POST method***  
 Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table:  
 ![http post methods images](./images/httpImg1.png)  
