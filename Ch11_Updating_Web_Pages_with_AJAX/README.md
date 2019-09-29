@@ -80,11 +80,12 @@ One generic header that requires special metion for Ajax applications is the Cac
 ***GET method***  
 - Used for standard web page requests
 - Can have a query string or form data appended to the URL  
-When requesting a URL, most web browsers include the headers listed in the next table:
-***POST method***
-  - Similar to a GET request except that any submitted data is included in the message body
-    - Immediately following the blank line after the last header
-![http methods images](./images/httpImg2.png)
+
+When requesting a URL, most web browsers include the headers listed in the next table:  
+![http methods images](./images/httpImg2.png)  
+***POST method***  
+- Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table: 
+
 
 #### Receiving HTTP Response
 - HTTP response messages
