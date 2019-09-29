@@ -39,7 +39,7 @@ When you incorporate data from a web service into an app that runs in a browser,
 
 **Using Ajax to update data involves 4 steps:**
 1. Instantiate an ```XMLHttpRequest``` object for the web browser where the script will run.
-2. Use the ```XMLHttpRequest object to send a request to the server.
+2. Use the ```XMLHttpRequest``` object to send a request to the server.
 3. Receive the response from the server containing the requested data.
 4. Process the data returned from the server, and incorporate the data into the app. 
 
@@ -111,10 +111,9 @@ When you incorporate data from a web service into an app that runs in a browser,
   - 5xx: (server error) - Request cannot be fulfilled due to a server error
 
 
-#### Requesting Server Data
-- ```XMLHttpRequest``` object
-  - Key to incorporating Ajax in JavaScript code
-  - Allows use of use JavaScript and HTTP to exchange data between a web browser and a web server
+## Requesting Server Data
+- ```XMLHttpRequest``` object is the key to incorporating Ajax in JavaScript code because it allows use to use JavaScript and HTTP to exchange data between a web browser and a web server
+- More specifically, *you can use the methods and properties of an instantiated **```XMLHtppRequest```** object with JavaScript to build and send request messages, and to receive and process response messages.*
 ![http methods images](./images/httpImg4.png)
 ![http methods images](./images/httpImg5.png)
 
