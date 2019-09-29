@@ -239,12 +239,12 @@ The data returned by forecast.io is a string representation of a JSON object. Yo
 This web app will rely on a server-side script as a proxy to retreive weather infromation from forecast.io. This script is written in **PHP**, which is a programming language specifically designed to run on web servers. Your PHP proxy script executes when it is passed latitude and longitude values with the ```XMLHttpRequest``` object. After the PHP script retrieves the weather infromation for the specified coordinates, it returns the data to the JavaScript code that called it.  
 PHP code to retreive data from the forecast.io service:
 ```PHP
-<?php
+    <?php
     $WeatherSource = "https://api.forecast.io/forecast/apikey/" . $_GET["lat"] . "," . $_GET["lng"];
     header("Content-Type: application/json");
     header("Cache-Control: no-cache");
     readfile($WeatherSource);
-?>
+    ?>
 ```
 1. First, move your data files onto your web server
 2. Open the solar.html and script.js in text editor.
@@ -259,4 +259,22 @@ PHP code to retreive data from the forecast.io service:
 ![http network request/response](./images/httpImg7.png)
 4. Examine the request header in your developer tools:
 ![http request header](./images/httpImg9.png)
-5. Examine the response headers using developer tools:  
+5. Examine the response headers using developer tools:   
+![http request header](./images/httpImg10.png)  
+<br/>
+Here we saw the basics of HTTP requests and reponses.  
+Examine the solar.php file, which you'll use as a proxy for your cross-domain request. You'll then request your own API key from the forecast.io web service, and you'll finalize the solar.php file by incorporating your API key into the URL for the HTTP request. 
+6. Obtain an API key for forecast.io and incorporate it into the solar.php file:
+   - open solar.php
+   - Line 2 replace the placeholder 'apikey' with an actual API key.
+   - Line 6 uses the PHP readfile() function to return the forecast data as the body of the HTTP response.
+   - register to developer.forecast.io; copy the API key; replace it with the placeholder in your proxy file
+Your final configuration of the PHP file for your proxy server should look like this:
+```PHP
+    <?php
+    $WeatherSource = "https://api.forecast.io/forecast/773920fad47b82d3eda1b1bfb2daf84a/" . $_GET["lat"] . "," . $_GET["lng"];
+    header("Content-Type: application/json");
+    header("Cache-Control: no-cache");
+    readfile($WeatherSource);
+    ?>
+```
