@@ -250,4 +250,12 @@ PHP code to retreive data from the forecast.io service:
 ?>
 ```
 1. First, move your data files onto your web server
+2. Open the solar.html and script.js in text editor.
+   - solar.html includes a mostly empty table
+   - script.js:
+     - declares 2 global variables
+     - getWeather() function and declares event listeners - the event listeners call the getWeather() functions when a user clicks one of the three location buttons, as well as the page loads.
+     - The getWeather() function checks if a button was clicked, and if so, uses the button text as the value of the selectCity variable. 
+     - It then sets values for the latitude and longitude local variables based on the selectedCity value  
+     You'll complete the function to submit Ajax request to forecast.io using the latitude and longitute values to get weather forecast data for the relevant city. 
 
