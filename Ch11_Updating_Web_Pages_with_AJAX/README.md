@@ -113,16 +113,24 @@ When you incorporate data from a web service into an app that runs in a browser,
 
 ## Requesting Server Data
 - ```XMLHttpRequest``` object is the key to incorporating Ajax in JavaScript code because it allows use to use JavaScript and HTTP to exchange data between a web browser and a web server
-- More specifically, *you can use the methods and properties of an instantiated **```XMLHtppRequest```** object with JavaScript to build and send request messages, and to receive and process response messages.*
+- More specifically, *you can use the methods and properties of an instantiated **```XMLHtppRequest```** object with JavaScript to build and send request messages, and to receive and process response messages.*  
+
+***The ```XMLHtppRequest```*** object contains the methods listed below:
 ![http methods images](./images/httpImg4.png)
 ![http methods images](./images/httpImg5.png)
 
-#### Instantiating an XMLHttpRequest Object
-- Use the XMLHttpRequest constructor   
-    ```var httpRequest = new XMLHttpRequest();```
-- Most JavaScript programmers use a series of nested ```try/catch``` statements
+### Instantiating an XMLHttpRequest Object
+- The first step for using Ajax to exchange data between an HTTP client and a web server is to instantiate an ```XMLHttpRequest```object. 
+- Unlike some other build-in JavaScript objects like arrays, there is no object literal form for creating an XMLHttpRequest object. Instead, you **instantiate an ```XMLHtppRequest``` object with the ```XMLHtppRequest```constructor,** as follows:  
+```JavaScript
+	var httpRequest = new XMLHttpRequest();
+```
+- Most JavaScript programmers use a series of nested **```try/catch```** statements
+- Note that the ```try```statement does not throw a custom error, but instead relies on the JavaScript processor to throw its own error. The catch statement then specifies a custom message to be displayed.
 - Opening and closing HTTP connections is a bottleneck in page loading
-- Can make Ajax programs faster by reusing an instantiated XMLHttpRequest object
+- to improve performance between client requests and server responses, HTTP/1.1 automatically keeps the client-server connection open until the client or server explicitly closes it by assigning a value of close to the Connection header.
+- This means that you can make Ajax programs faster by reusing an instantiated XMLHttpRequest object  
+***Example :***
 ```JavaScript
 var curRequest = false;
 var httpRequest;
@@ -130,7 +138,7 @@ function getRequestObject() {
    try {
       httpRequest = new XMLHttpRequest();
    }
-  catch (requestError) { 
+   catch (requestError) { 
       document.getElementById("main").innerHTML = "Your↵
          browser does not support this content";
       return false;
