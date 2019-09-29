@@ -75,7 +75,7 @@ One generic header that requires special metion for Ajax applications is the Cac
 - Other HTTP request methods
   - ```HEAD, DELETE, OPTIONS, PUT```, and ```TRACE```
 - Can use browser tools to examine HTTP headers
-
+<br/>
 ### Sending HTTP Requests
 ***GET method***  
 - Used for standard web page requests
@@ -83,26 +83,23 @@ One generic header that requires special metion for Ajax applications is the Cac
 
 When requesting a URL, most web browsers include the headers listed in the next table:  
 ![http get methods images](./images/httpImg.png)  
+<br/>
 ***POST method***  
-- Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table:  
+Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table:  
 ![http post methods images](./images/httpImg1.png)  
+<br/>
 
-
-#### Receiving HTTP Response
-- HTTP response messages
-  - Take the same format as request messages
-  - Return protocol and version of the HTTP server
-    - Along with a status code and descriptive text
+### Receiving HTTP Response
+***HTTP response messages***:  
+- Takes the same format as request messages, except for the contents of the start line and headers.
+- Instead of containing a request method, the start line (also known as the request line) returns the protocol and version of the HTTP server (such as HTTP/1.1) along with the status code and descriptive text. 
 - Status codes format
   - 1xx: (informational) - Request received
   - 2xx: (success) - Request successful
   - 3xx: (redirection) - Request cannot be completed without further action
   - 4xx: (client error) - Request cannot be fulfilled due to a client error
   - 5xx: (server error) - Request cannot be fulfilled due to a server error
-![http methods images](./images/httpImg3.png)
-- Zero or more response headers follow the status line
-- Response returned from a server
-  - Can be much more involved than original request that generated it
+
 
 #### Requesting Server Data
 - ```XMLHttpRequest``` object
@@ -262,3 +259,4 @@ PHP code to retreive data from the forecast.io service:
 ![http network request/response](./images/httpImg7.png)
 4. Examine the request header in your developer tools:
 ![http request header](./images/httpImg9.png)
+5. Examine the response headers using developer tools:  
