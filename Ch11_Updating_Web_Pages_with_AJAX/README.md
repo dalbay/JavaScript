@@ -151,18 +151,43 @@ if (!curRequest) {
 
 ```
 
+### Opening and Sending a Request
+- Use the **```open()```** method with the instantiated ```XMLHttpRequest``` object to specify the request method (GET or POST) and URL  
+##### With the GET method:
+***Example :*** the following is used by a web app that displays stock prices; it specifies the GET method and a URL named StockCheck.php, which is a PHP proxy script that retrieves the stock information from a web service. The requested stock is appended to the URL as a query string in the format ```checkQuote=tickerSymbol```. The value is then passed to the function.
+```JavaScript
+	stockRequest.open("get","StockCheck.php?" + "checkQuote=" + tickerSymbol);
+```
+- **```open()```** method accepts three optional arguments - ```async, username, password```. The async argument is true by default; the username and password arguments are only necessary if the web server requires authentication. 
+- **```abort()```** method used to cancel any existing HTTP requests before beginning a new one
+- **```send()```** method - submit the request to the server; accepts a single argument containing the message body. If GET is specified with the ```open()``` method, you must pass a value of ```null``` to the ```send()``` method.  
 
+***Example :*** append the ```abort()``` method to an instantiated XMLHtppRequest object and open and send a request:  
+```JavaScript
+	stockRequest.abort();
+	stockRequest.open("get","StockCheck.php?" + "checkQuote=" + tickerSymbol, false, user, pw);
+	stockRequest.send(null);
+```
+##### With the POST method:
 
-
-#### Opening and Sending a Request
-- Use the ```open()``` method with the instantiated ```XMLHttpRequest``` object to specify the request method (GET or POST) and URL
-- ```open()``` method accepts three optional arguments - ```async, username, password```
-- ```abort()``` method used to cancel any existing HTTP requests before beginning a new one
-- ```send()```s method - submit the request to the server; accepts a single argument containing the message body
 - POST requests more involved
   - Must manually build name-value pairs to submit
-  - Must submit at least ```Content-Type``` header before ```send()``` method
-  - Also should submit ```Content-Length``` header and ```Connection``` header
+  - Must submit at least **```Content-Type```** header before ```send()``` method to identify the MIME type of the message body. 
+  - Also should submit **```Content-Length```** header to specify the size of the message body; and submit the  **```Connection```** header to specify that the connecion with the server should be closed after response is received.
+  - Use the **```setRequestHeader()```** method to specify HTTP headers and values to submit with the HTTP request. You pass two arguments to the method: the name of the header and its value.  
+
+***Example :*** the following code uses the ```setRequestHeader()``` method to define the ```Content-Type```,```Content-Length```, and ```Connection```header before submitting the request for the stock quote web page:  
+```JavaScript
+	stockRequest.abort();
+	stockRequest.open("post", "StockCheck.php");
+	var requestBody = "checkQuote=" + encodeURIComponent(ticherSymbol);
+	stockRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencode");
+	stockRequest.setRequestHeader("Content-Length", requestBody.length);
+	stockRequest.setRequestHeader("Connection", "close");
+	stockRequest.send(requestBody)'
+```
+
+ 
 
 #### Receiving Server Data
 - ```responseXML``` property - contains the HTTP response as an XML document only if server response includes the ```Content-Type``` header with a MIME type value of ```text/xml```
