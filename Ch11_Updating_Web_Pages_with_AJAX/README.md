@@ -59,13 +59,14 @@ For example - the following lines define two generic headers that can be used in
     Connection: close
     Date: Wed, 11 June 2019 13:32:04 GMT
 ```
+***Cache-Control Header :***  
 One generic header that requires special metion for Ajax applications is the Cache-Control header, which specifies how a web browser should cache any server content it receives.  
-***```Cache-Control``` Header :***
-- Specifies how a web browser should cache any server content it receives
+
 - Caching :
   - Temporary storage of data for faster access
-  - Web browser attempts to locate any necessary data in its cache before making a request from a web server
-  - goes against the reason for using Ajax
+  - web browsers try to reduce the amount of data that needs to be retrieved from a server by caching retrieved data on a local computer.
+  - If caching is enabled in a web browser, the web browser will attempt to locate any necessary data in its cache before making a request from a web server
+  - this goes against the reason for using Ajax, which is dynamically update portions of a web page with the most recent data from a server. For this reason, you should always include the ```Cache-Control``` header when creating an Ajax connection, and you should assign it a value of ```no-cache```.
   - Include ```Cache-Control: no-cache```
 - Blank line always follows last header line
   - Optional: message body can follow the blank line in the messages
@@ -254,4 +255,6 @@ PHP code to retreive data from the forecast.io service:
      - The getWeather() function checks if a button was clicked, and if so, uses the button text as the value of the selectCity variable. 
      - It then sets values for the latitude and longitude local variables based on the selectedCity value  
      You'll complete the function to submit Ajax request to forecast.io using the latitude and longitute values to get weather forecast data for the relevant city. 
+3. Open solar.html in the browser and examine the network requests and responses related to the current document.
+![http network request/response](./images/httpImg7.png)
 
