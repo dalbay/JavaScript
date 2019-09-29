@@ -328,20 +328,37 @@ Your final configuration of the PHP file for your proxy server should look like 
 7. Instantiate an XMLHtppRequest object:
    -  Near the top of your script.js document, add a global variable:
 ```JavaScript
-	var httpRequest = false
+	// track whether an exisiting HTTP request is open, which will enable you to reuse it
+	var httpRequest = false;
 ```
    - Below the global variable declarations, create this function:
 ```JavaScript
+
 	function getRequestObject(){
-		try{
-			httpRequest = new XMLHtppRequest();
-			
-		}catch{
-			document.querySelector("p.error").innerHTML = "Forecast not supported by your browser.";
-			document.querySelector("p.error").style.display = "block";
-			return false;
-		
-		}
-		return httpRequest;
+	   try{
+		  // instantiate an XMLHttpRequest object with the constructor
+		  httpRequest = new XMLHttpRequest();
+
+	   }catch(requestError){
+		  document.querySelector("p.error").innerHTML = "Forecast not supported by your browser.";
+		  document.querySelector("p.error").style.display = "block";
+		  return false;
+
+	   }
+	   return httpRequest;
 	}
 ```
+8. Add a function that instantiates, opens, and submits an XMLHttpRequest object:
+   - within the getWeather() function, just before the closing }, enter the following code:
+```JavaScript
+	if(!httpRequest){
+      // instantiate an XMLHttpRequest object if not available
+      httpRequest = getRequestObject();
+      // cancel any existing request
+      httpRequest.abort();
+      // open new request, specify get as method; concatenate the filename with string values
+      httpRequest.open("get", "solar.php?" + "lat=" + latitude + "lng=" + longitude, true);
+      httpRequest.send(null);
+	}
+```
+
