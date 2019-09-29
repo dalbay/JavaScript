@@ -93,7 +93,8 @@ When you incorporate data from a web service into an app that runs in a browser,
 <br/>
 
 ***POST method***  
-Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table:  
+- Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header.  
+To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table:  
 ![http post methods images](./images/httpImg1.png)  
 <br/>
 
