@@ -202,6 +202,9 @@ if (!curRequest) {
 
 ***Example :*** append the ```abort()``` method to an instantiated XMLHtppRequest object and open and send a request:  
 ```JavaScript
+   var user = document.getElementById("username").value;
+   var pw = document.getElementById("password").value;
+
 	stockRequest.abort();
 	stockRequest.open("get","StockCheck.php?" + "checkQuote=" + tickerSymbol, false, user, pw);
 	stockRequest.send(null);
@@ -227,18 +230,32 @@ if (!curRequest) {
 
  <br/>
 
-#### Receiving Server Data
+
+## Receiving Server Data
 - ```responseXML``` property - contains the HTTP response as an XML document only if server response includes the ```Content-Type``` header with a MIME type value of ```text/xml```
 - ```responseText property``` - Contains the HTTP response as a text string
-#### Processing XML Data in a Response
+### Processing XML Data in a Response
 - Assign property values to document nodes
   - Assign value of responseXML property to a variable
-  - Use innerHTML and node properties to assign values of XML document stored in variable to appropriate elements
-#### Processing Text Data in a Response
-- ```responseText``` value almost always a JSON string
-  - First use ```JSON.parse()``` to convert to object
-  - Then access property values of new object and add to DOM elements
+  - Use innerHTML and node properties to assign values of XML document stored in variable to appropriate elements  
 
+***Example :*** the following statements demonstrate how to manipulate the value assigned to the ```responseXML``` property for the stock quote web page.  
+```JavaScript
+   var stockValues = stockRequest.responseXML;
+   document.getElementById("ticker").innerHtml = stockValues.getElementsByTagName("ticker")[0].childNodes[0].nodeValue;
+   document.getElementById("openingPrice").innerHtml = stockValues.getElementsByTagName("open")[0].childNodes[0].nodeValue;
+   document.getElementById("lastTrade").innerHtml = stockValues.getElementsByTagName("lastTrade")[0].childNodes[0].nodeValue;
+```
+
+### Processing Text Data in a Response
+- ```responseText``` value is almost always a JSON string
+  - First use ```JSON.parse()``` to convert to object
+  - Then access property values of new object and add to DOM elements  
+
+***Example :*** if JSON is returned instead of XML, parse the  ```responseText``` value and store the result as an object; then assign some of the object's property values as the innerHTML values of DOM elements.  
+```JavaScript
+   var stockValues = JSON.parse(stockRequest.responseText);
+```
 #### Sending and Receiving Synchronous Requests and Responses
 - Synchronous request 
   - Stops the processing of the JavaScript code until a response returned from the server
@@ -472,6 +489,9 @@ within the ```getWeather()``` function, just before the closing }, enter the fol
    ![XMLHttpResponse image console response](./images/httpImg13.png)  
 
 Next explore how to access and incorporate this data into your app.
+
+
+
 
 
 
