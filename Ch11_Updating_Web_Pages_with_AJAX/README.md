@@ -288,22 +288,17 @@ Although synchronous reponses are easier to handle than asynchronous responses, 
 <br/>
 
 ### Sending and Receiving Asynchronous Requests and Responses
-- Asynchronous request 
-  - Allows JavaScript to continue processing while it waits for a server response
-- Create an asynchronous request
-  - Pass a value of ```true``` as the third argument of the ```open()``` method, or omit the argument altogether
-- Receive a response - Use the ```XMLHttpRequest``` object’s ```readyState``` property and ```onreadystatechange``` event
-- Example:
+- Asynchronous request - allows JavaScript to continue processing while it waits for a server response
+- To create an asynchronous request, pass a value of ```true``` as the third argument of the ```open()``` method, or omit the argument altogether.
+- To receive a response for an asynchronous request, you must use the ```XMLHttpRequest``` object’s ```readyState``` property and ```readystatechange``` event.
+***Example :***
 ```JavaScript
     stockRequest.abort();
     stockRequest.open("get","StockCheck.php?" + "checkQuote=" + tickerSymbol, true);
     stockRequest.send(null);
     stockRequest.onreadystatechange = fillStockInfo;
-```
-- Value assigned to the ```readyState``` property updated automatically according to the current statement of the HTTP request. If property assigned a value of 4 - response finished loading
 
-- Example:
-```JavaScript
+// The value of the readyState property is updated automatically according to the current statement of the HTTP request. However, you cannot process the response until the readyState property is assigned a value of 4.
 function fillStockInfo() {
    if (stockRequest.readyState === 4 && stockRequest.status↵
       === 200) {
@@ -314,6 +309,9 @@ function fillStockInfo() {
    }
 }
 ```
+
+
+
 #### Refreshing Server Data Automatically
 - Automatically refresh data obtained from an HTTP server
   - Use JavaScript’s ```setTimeout()``` or ```setInterval()``` methods
@@ -514,8 +512,25 @@ within the ```getWeather()``` function, just before the closing }, enter the fol
 
 Next explore how to access and incorporate this data into your app.
 
+10. Create a function to process the forecast data:  
 
+The ```open()``` method includes a ```true``` parameter, meaning that the ```XMLHttpRequest``` object sends and receives **asynchronous requests and responses**.  
+Next create a function that will process the forecast data received from the XMLHttpRequest object.  
+```JavaScript
+// process the forecastt  data
+function fillWeather() {
+   if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+      weatherReport = JSON.parse(httpRequest.responseText);
+   }
+}
 
+   // scroll up to the getWeather() function, and before the closing }, enter the statement to configure fillWeather function as the event handler for the readystatechange event of the httpRequest object:
+   httpRequest.onreadystatechange = fillWeather;
+```  
+
+11. Examine the JSON object assigned to the variable named weatherReport.  
+In your browser console, type ```weatherReport``` and press Enter:
+![XMLHttpResponse image console response](./images/httpImg14.png)  
 
 
 
