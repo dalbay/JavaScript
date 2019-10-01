@@ -24,7 +24,7 @@ The purpose of the *same-origin policy* is to prevent malicious scripts from mod
 However, the ability of one web server to access web pages and data on another web server is the foundation of the World Wide Web. Although you should never attempt to pass off content from another website as your own, there are legitimate reasons why you would use a server-side script to access data from another domain.
 <br/>
 
-One common use is to display data provided by a ***web service***, which is a data source available on one domain for use on other domains accross the web. Web services provide services and data in response to requests that use the methods and properties of their APIs; it is up to the client accessing a web service to provide an implementation for a program that calls the web service.
+One common use is to display data provided by a ***web service***, which is a data source available on one domain for use on other domains accross the web. *Web services provide services and data in response to requests that use the methods and properties of their **APIs***; it is up to the client accessing a web service to provide an implementation for a program that calls the web service.
 <br/>  
 ***Widgets***:  
 Instead of implementing an API to access and display content from a web service, some companies offer prepacked code known as **widgets** that enable to add content from the service to a web document. Widgets often contain code that uses Ajax to fetch and update content from the service.  
