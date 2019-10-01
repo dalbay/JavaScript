@@ -44,10 +44,10 @@ When you incorporate data from a web service into an app that runs in a browser,
 ## Working with HTTP
 
 **Using Ajax to update data involves 4 steps:**
-1. Instantiate an ```XMLHttpRequest``` object for the web browser where the script will run.
-2. Use the ```XMLHttpRequest``` object to send a request to the server.
-3. Receive the response from the server containing the requested data.
-4. Process the data returned from the server, and incorporate the data into the app. 
+1. *Instantiate an ```XMLHttpRequest``` object* for the web browser where the script will run.
+2. *Use the ```XMLHttpRequest``` object* to send a request to the server.
+3. *Receive the response* from the server containing the requested data.
+4. *Process the data* returned from the server, and incorporate the data into the app. 
 
 ### Understanding HTTP Messages
 ***HTTP messages :***  
@@ -90,15 +90,15 @@ When you incorporate data from a web service into an app that runs in a browser,
 
 ### Sending HTTP Requests  
 
-***GET method***  
+***GET method :***  
 - Used for standard web page requests
 - Can have a query string or form data appended to the URL  
 
-*When requesting a URL, most web browsers include the headers listed in the next table:*
+*When requesting a URL, most web browsers include the headers listed in the next table :*
 ![http get methods images](./images/httpImg.png)  
 <br/>
 
-***POST method***  
+***POST method :***  
 - Similar to a GET request except that any submitted data is included in the message body immediately following the blank line after the last header.  
 
 *To provide more information about the message body, requests made with the POST method usually include some of the headers listed in the next table:*  
@@ -114,7 +114,11 @@ When you incorporate data from a web service into an app that runs in a browser,
   - 2xx: (success) - Request successful
   - 3xx: (redirection) - Request cannot be completed without further action
   - 4xx: (client error) - Request cannot be fulfilled due to a client error
-  - 5xx: (server error) - Request cannot be fulfilled due to a server error
+  - 5xx: (server error) - Request cannot be fulfilled due to a server error  
+**Example :** for successful requests with HTTP 1.1, the start line in the response message consists of the following status line:
+```JavaScript
+   HTTP/1.1 200 OK
+```
 <br/>
 
 ## Requesting Server Data
