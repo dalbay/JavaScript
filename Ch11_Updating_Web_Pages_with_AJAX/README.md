@@ -1,7 +1,8 @@
 # Updating Web Pages With AJAX
 
 ## Introduction to Ajax
-- Allows client web pages to quickly interact and exchange data with a web server *Without reloading entire web page*.
+- Allows client web pages to quickly interact and exchange data with a web server.  
+  *Without reloading entire web page*.
 - Relies on Programming language such as ***JavaScript***; Data interchange format such as **JSON** or **XML**.
 - **```XMLHttpRequest```** object **(XHR object)**
   Uses HTTP to exchange data between a client computer and a web server
@@ -351,14 +352,20 @@ Your final configuration of the PHP file for your proxy server should look like 
 8. Add a function that instantiates, opens, and submits an XMLHttpRequest object:
    - within the getWeather() function, just before the closing }, enter the following code:
 ```JavaScript
-	if(!httpRequest){
+   if (!httpRequest) {
       // instantiate an XMLHttpRequest object if not available
       httpRequest = getRequestObject();
       // cancel any existing request
       httpRequest.abort();
       // open new request, specify get as method; concatenate the filename with string values
-      httpRequest.open("get", "solar.php?" + "lat=" + latitude + "lng=" + longitude, true);
+      httpRequest.open("get", "solar.php?" + "lat=" + latitude + "&lng=" + longitude, true);
       httpRequest.send(null);
-	}
-```
+   }
+```  
+   - return to solar.html in your browser; open network tools pane; refresh page
+   - in the file list click solar.php?lat=37.7577&lng=-122.4376 -> this is the request created by the ```XMLHttpRequest``` object stored in the ```httpRequest``` variable for the default location of Tucson,AZ.
+   - Examine the request and response headers. The response headers include the headers and values you specified in the solar.php file for ```Cache-Control``` and ```Content-Type```.  
+   Even though you have received a response, notice that the document displays no additional content. After you receive data from a web service, you need to add additional JavaScript code to parse the result and place the in your layout.
+
+
 
