@@ -150,7 +150,7 @@ Use the methods and properties of an instantiated **```XMLHtppRequest```** objec
 | send()	 | Sends the request to the server. Used for POST requests   |
 | setRequestHeader()	 | Adds a label/value pair to the header to be sent   |
 
-
+<br/>
 
 
 ### Instantiating an XMLHttpRequest Object
@@ -177,8 +177,7 @@ function getRequestObject() {
       httpRequest = new XMLHttpRequest();
    }
    catch (requestError) { 
-      document.getElementById("main").innerHTML = "Your↵
-         browser does not support this content";
+      document.getElementById("main").innerHTML = "Your browser does not support this content";
       return false;
    }
    return httpRequest;
@@ -188,6 +187,7 @@ if (!curRequest) {
 }
 
 ```
+<br/>
 
 ### Opening and Sending a Request
 - Use the **```open()```** method with the instantiated ```XMLHttpRequest``` object to specify the request method (GET or POST) and URL  
@@ -225,7 +225,7 @@ if (!curRequest) {
 	stockRequest.send(requestBody)'
 ```
 
- 
+ <br/>
 
 #### Receiving Server Data
 - ```responseXML``` property - contains the HTTP response as an XML document only if server response includes the ```Content-Type``` header with a MIME type value of ```text/xml```
@@ -311,18 +311,28 @@ function fillStockInfo() {
 
 
 ---
-##### The Whole Spectrum Energy Solution App:
+### The Whole Spectrum Energy Solution App:
+#### Project Description:
 For the Whole Spectrum Energy Solution app, you'll request and use data from forecast.io, a web service that provides real-time weather data, including a forecast, for a specified location. A forecast.io request has the following format:  
-``` https://api.forecast.io/forecast/apikey/latitude,longitude```  
-<br/>
+``` https://api.forecast.io/forecast/apikey/latitude,longitude``` 
+
+<br/> 
+
 The **apikey** term represents an API key, which is a unique identifier assigned by the service to each person or organization that wants to access the service. Unlike Google Maps, which allows a limited number of requests per day without an API key, all forecast.io requests must include an API key.  
+
 <br/>
+
 The latitude and longitude terms represent latitude and longitute values provided as positive or negative floating-point numbers.  
 The data returned by forecast.io is a string representation of a JSON object. You can use the ```JSON.parse()``` method to convert the returned string to a JavaScript object.  
+
 <br/>
-This web app will rely on a server-side script as a proxy to retreive weather infromation from forecast.io. This script is written in **PHP**, which is a programming language specifically designed to run on web servers. Your PHP proxy script executes when it is passed latitude and longitude values with the ```XMLHttpRequest``` object. After the PHP script retrieves the weather infromation for the specified coordinates, it returns the data to the JavaScript code that called it.  
+
+This web app will rely on a *server-side script as a proxy* to retreive weather infromation from forecast.io. This script is written in **PHP**, which is a programming language specifically designed to run on web servers. Your PHP proxy script executes when it is passed latitude and longitude values with the ```XMLHttpRequest``` object. After the PHP script retrieves the weather infromation for the specified coordinates, it returns the data to the JavaScript code that called it.  
+
+<br/>
+
 PHP code to retreive data from the forecast.io service:
-```PHP
+```php
     <?php
     $WeatherSource = "https://api.forecast.io/forecast/apikey/" . $_GET["lat"] . "," . $_GET["lng"];
     header("Content-Type: application/json");
@@ -330,15 +340,63 @@ PHP code to retreive data from the forecast.io service:
     readfile($WeatherSource);
     ?>
 ```
+#### Project - Steps to follow:
 1. First, move your data files onto your web server
 2. Open the solar.html and script.js in text editor.
    - solar.html includes a mostly empty table
    - script.js:
      - declares 2 global variables
-     - getWeather() function and declares event listeners - the event listeners call the getWeather() functions when a user clicks one of the three location buttons, as well as the page loads.
-     - The getWeather() function checks if a button was clicked, and if so, uses the button text as the value of the selectCity variable. 
-     - It then sets values for the latitude and longitude local variables based on the selectedCity value  
-     You'll complete the function to submit Ajax request to forecast.io using the latitude and longitute values to get weather forecast data for the relevant city. 
+     - declare getWeather() function  
+       The getWeather() function checks if a button was clicked, and if so, uses the button text as the value of the selectCity variable.  
+       It then sets values for the latitude and longitude local variables based on the selectedCity value.  
+       You'll complete the function to submit Ajax request to forecast.io using the latitude and longitute values to get weather forecast data for the relevant city.
+     - declare event listeners  
+       the event listeners call the getWeather() functions when a user clicks one of the three location buttons, as well as the page loads.
+```JavaScript
+"use strict";
+
+// declare global variables
+var selectedCity = "Tucson, AZ";
+var weatherReport;
+
+// declare function
+function getWeather(evt) {
+   var latitude;
+   var longitude;
+   if (evt.type !== "load") {
+      if (evt.target) {
+         selectedCity = evt.target.innerHTML;
+      } else if (evt.srcElement) {
+         selectedCity = evt.srcElement.innerHTML;
+      }
+   }
+   if (selectedCity === "Tucson, AZ") {
+      latitude = 37.7577;
+      longitude = -122.4376;
+   } else if (selectedCity === "Chicago, IL") {
+      latitude = 41.8337329;
+      longitude = -87.7321555;
+   } else if (selectedCity === "Montreal, QC") {
+      latitude = 45.5601062;
+      longitude = -73.7120832;
+   }
+}
+
+// declare event listeners
+var locations = document.querySelectorAll("section ul li");
+for (var i = 0; i < locations.length; i++) {
+   if (locations[i].addEventListener) {
+      locations[i].addEventListener("click", getWeather, false);
+   } else if (locations[i].attachEvent) {
+      locations[i].attachEvent("onclick", getWeather);
+   }
+}
+if (window.addEventListener) {
+   window.addEventListener("load", getWeather, false);
+} else if (window.attachEvent) {
+   window.attachEvent("onload", getWeather);
+}
+```
 3. Open solar.html in the browser and examine the network requests and responses related to the current document.
 ![http network request/response](./images/httpImg7.png)
 4. Examine the request header in your developer tools:

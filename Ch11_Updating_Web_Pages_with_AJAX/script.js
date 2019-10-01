@@ -2,10 +2,11 @@
 
 "use strict";
 
-// global variables
+// declare global variables
 var selectedCity = "Tucson, AZ";
 var weatherReport;
 
+// declare function
 function getWeather(evt) {
    var latitude;
    var longitude;
@@ -28,6 +29,7 @@ function getWeather(evt) {
    }
 }
 
+// declare event listeners
 var locations = document.querySelectorAll("section ul li");
 for (var i = 0; i < locations.length; i++) {
    if (locations[i].addEventListener) {
