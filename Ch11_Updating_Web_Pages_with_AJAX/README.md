@@ -115,6 +115,8 @@ When you incorporate data from a web service into an app that runs in a browser,
   - 3xx: (redirection) - Request cannot be completed without further action
   - 4xx: (client error) - Request cannot be fulfilled due to a client error
   - 5xx: (server error) - Request cannot be fulfilled due to a server error  
+<br/>
+
 - **Example :** for successful requests with HTTP 1.1, the start line in the response message consists of the following status line:
 ```JavaScript
    HTTP/1.1 200 OK
