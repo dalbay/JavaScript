@@ -422,13 +422,14 @@ Your final configuration of the PHP file for your proxy server should look like 
     readfile($WeatherSource);
     ?>
 ```
-7. Instantiate an XMLHtppRequest object:
-   -  Near the top of your script.js document, add a global variable:
+7. Instantiate an XMLHtppRequest object:  
+
+Near the top of your script.js document, add a global variable:
 ```JavaScript
 	// track whether an exisiting HTTP request is open, which will enable you to reuse it
 	var httpRequest = false;
-```
-   - Below the global variable declarations, create this function:
+```  
+Below the global variable declarations, create this function:
 ```JavaScript
 
 	function getRequestObject(){
@@ -445,8 +446,9 @@ Your final configuration of the PHP file for your proxy server should look like 
 	   return httpRequest;
 	}
 ```
-8. Add functionality that instantiates, opens, and submits an XMLHttpRequest object:
-   - within the getWeather() function, just before the closing }, enter the following code:
+8. Add functionality that instantiates, opens, and submits an XMLHttpRequest object:  
+
+within the ```getWeather()``` function, just before the closing }, enter the following code:
 ```JavaScript
    if (!httpRequest) {
       // instantiate an XMLHttpRequest object if not available
@@ -461,7 +463,11 @@ Your final configuration of the PHP file for your proxy server should look like 
    - return to solar.html in your browser; open network tools pane; refresh page
    - in the file list click solar.php?lat=37.7577&lng=-122.4376 -> this is the request created by the ```XMLHttpRequest``` object stored in the ```httpRequest``` variable for the default location of Tucson,AZ.
    - Examine the request and response headers. The response headers include the headers and values you specified in the solar.php file for ```Cache-Control``` and ```Content-Type```.  
-   Even though you have received a response, notice that the document displays no additional content. After you receive data from a web service, you need to add additional JavaScript code to parse the result and place the in your layout.
+   ![XMLHttpRequest images](./images/httpImg11.png)  
+   
+   Even though you have received a response, notice that the document displays no additional content.  
+   After you receive data from a web service, you need to add additional JavaScript code to parse the result and place the in your layout.
+
 
 
 
