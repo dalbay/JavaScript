@@ -140,13 +140,13 @@ Use the methods and properties of an instantiated **```XMLHtppRequest```** objec
 
 ***XMLHttpRequest Object Methods***:
 
-| Method        | Description   | 
-| ------------- |:-------------:| 
+| Method     | Description   | 
+| ---------- |:-------------:| 
 | new XMLHttpRequest()      | Creates a new XMLHttpRequest object | 
 | abort()    | Cancels the current request  | 
 | getAllResponseHeaders() | 	Returns header information      |  
 | getResponseHeader()	 | Returns specific header information    |
-| open(method, url, async, user, psw)	 | Specifies the request - method: the request type GET or POST; <br/> url: the file location; <br/> async: true (asynchronous) or false (synchronous); <br/> user: optional user name; <br/> psw: optional password |
+| open(method, url, async, user, psw)	 | Specifies the request <br/> method: the request type GET or POST <br/> url: the file location <br/> async: true (asynchronous) or false (synchronous) <br/> user: optional user name <br/> psw: optional password |
 | statusText	 |Returns the status-text (e.g. "Not Found" or "OK")   |
 ![http methods images](./images/httpImg4.png)
 
