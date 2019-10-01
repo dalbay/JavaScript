@@ -406,7 +406,8 @@ if (window.addEventListener) {
 <br/>
 
 Here we saw the basics of HTTP requests and reponses.  
-Examine the solar.php file, which you'll use as a proxy for your cross-domain request. You'll then request your own API key from the forecast.io web service, and you'll finalize the solar.php file by incorporating your API key into the URL for the HTTP request.  
+Examine the solar.php file, which you'll use as a proxy for your cross-domain request.  
+
 6. Obtain an API key for forecast.io and incorporate it into the solar.php file:
    - Line 2 replace the placeholder 'apikey' with an actual API key.
    - Line 6 uses the PHP readfile() function to return the forecast data as the body of the HTTP response.
@@ -444,7 +445,7 @@ Your final configuration of the PHP file for your proxy server should look like 
 	   return httpRequest;
 	}
 ```
-8. Add a function that instantiates, opens, and submits an XMLHttpRequest object:
+8. Add functionality that instantiates, opens, and submits an XMLHttpRequest object:
    - within the getWeather() function, just before the closing }, enter the following code:
 ```JavaScript
    if (!httpRequest) {
