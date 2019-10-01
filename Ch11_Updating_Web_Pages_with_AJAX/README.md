@@ -125,7 +125,7 @@ When you incorporate data from a web service into an app that runs in a browser,
 
 ## Requesting Server Data
 
-*Use the methods and properties of an instantiated **```XMLHtppRequest```** object with JavaScript to build and send request messages, and to receive and process response messages.*  
+Use the methods and properties of an instantiated **```XMLHtppRequest```** object with JavaScript to build and send request messages, and to receive and process response messages.  
 
 ***XMLHttpRequest Object Properties***:
 
@@ -140,13 +140,18 @@ When you incorporate data from a web service into an app that runs in a browser,
 
 ***XMLHttpRequest Object Methods***:
 
-| Method      | Description   | 
+| Method        | Description   | 
 | ------------- |:-------------:| 
 | new XMLHttpRequest()      | Creates a new XMLHttpRequest object | 
-| readyState    | The state of the http request  (from 0 to 4)  | 
-| responseText |Returns the response data as a string      |  
-| responseXML	 |Returns the response data as XML data    |
-| status	 |Returns the status-number (e.g. "404" for "Not Found" or "200" for "OK")    |
+| abort()    | Cancels the current request  | 
+| getAllResponseHeaders() | 	Returns header information      |  
+| getResponseHeader()	 | Returns specific header information    |
+| open(method, url, async, user, psw)	 |Specifies the request  
+method: the request type GET or POST  
+url: the file location  
+async: true (asynchronous) or false (synchronous)  
+user: optional user name  
+psw: optional password   |
 | statusText	 |Returns the status-text (e.g. "Not Found" or "OK")   |
 ![http methods images](./images/httpImg4.png)
 
