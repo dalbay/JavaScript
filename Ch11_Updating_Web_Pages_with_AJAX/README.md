@@ -234,6 +234,8 @@ if (!curRequest) {
 ## Receiving Server Data
 - ```responseXML``` property - contains the HTTP response as an XML document only if server response includes the ```Content-Type``` header with a MIME type value of ```text/xml```
 - ```responseText property``` - Contains the HTTP response as a text string
+<br/>
+
 ### Processing XML Data in a Response
 - Assign property values to document nodes
   - Assign value of responseXML property to a variable
@@ -245,7 +247,9 @@ if (!curRequest) {
    document.getElementById("ticker").innerHtml = stockValues.getElementsByTagName("ticker")[0].childNodes[0].nodeValue;
    document.getElementById("openingPrice").innerHtml = stockValues.getElementsByTagName("open")[0].childNodes[0].nodeValue;
    document.getElementById("lastTrade").innerHtml = stockValues.getElementsByTagName("lastTrade")[0].childNodes[0].nodeValue;
+   . . .
 ```
+<br/>
 
 ### Processing Text Data in a Response
 - ```responseText``` value is almost always a JSON string
@@ -255,8 +259,15 @@ if (!curRequest) {
 ***Example :*** if JSON is returned instead of XML, parse the  ```responseText``` value and store the result as an object; then assign some of the object's property values as the innerHTML values of DOM elements.  
 ```JavaScript
    var stockValues = JSON.parse(stockRequest.responseText);
-```
-#### Sending and Receiving Synchronous Requests and Responses
+
+   document.getElementById("ticker").innerHTML = stockValues.ticker;
+   document.getElementById("openingPrice").innerHTML = stockValues.open;
+   document.getElementById("lastTrade").innerHTML = stockValues.lastTrade;
+   . . .
+```  
+<br/>
+
+### Sending and Receiving Synchronous Requests and Responses
 - Synchronous request 
   - Stops the processing of the JavaScript code until a response returned from the server
   - Check ```XMLHttpRequest``` object’s ```status``` property value
