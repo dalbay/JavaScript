@@ -154,17 +154,20 @@ Use the methods and properties of an instantiated **```XMLHtppRequest```** objec
 
 
 ### Instantiating an XMLHttpRequest Object
-- The first step for using Ajax to exchange data between an HTTP client and a web server is to instantiate an ```XMLHttpRequest```object. 
-- Unlike some other build-in JavaScript objects like arrays, there is no object literal form for creating an XMLHttpRequest object. Instead, you **instantiate an ```XMLHtppRequest``` object with the ```XMLHtppRequest```constructor,** as follows:  
+- The first step for using Ajax to exchange data between an HTTP client and a web server is to instantiate an ```XMLHttpRequest```object.  
+Unlike some other build-in JavaScript objects like arrays, there is no object literal form for creating an XMLHttpRequest object. Instead, you **instantiate an ```XMLHttpRequest``` object with the ```XMLHttpRequest```constructor,** as follows:  
 ```JavaScript
 	var httpRequest = new XMLHttpRequest();
 ```
-- Most JavaScript programmers use a series of nested **```try/catch```** statements
-- Note that the ```try```statement does not throw a custom error, but instead relies on the JavaScript processor to throw its own error. The catch statement then specifies a custom message to be displayed.
-- Opening and closing HTTP connections is a bottleneck in page loading
-- to improve performance between client requests and server responses, HTTP/1.1 automatically keeps the client-server connection open until the client or server explicitly closes it by assigning a value of close to the Connection header.
-- This means that you can make Ajax programs faster by reusing an instantiated XMLHttpRequest object  
+<br/>
+
 ***Example :***
+- use **```try/catch```** statements  
+  note that the ```try```statement does not throw a custom error, but instead relies on the *JavaScript processor to throw its own error*.  
+  The ```catch``` statement then specifies a custom message to be displayed.
+- Opening and closing HTTP connections is a bottleneck in page loading  
+  to improve performance between client requests and server responses, *HTTP/1.1 automatically keeps the client-server connection open* until the client or server explicitly closes it by assigning a value of close to the Connection header.  
+  This means that you can make Ajax programs faster by *reusing an instantiated XMLHttpRequest object*.  
 ```JavaScript
 var curRequest = false;
 var httpRequest;
