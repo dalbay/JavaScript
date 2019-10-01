@@ -3,11 +3,11 @@
 ## Introduction to Ajax
 - Allows client web pages to quickly interact and exchange data with a web server.  
   *Without reloading entire web page*.
-- Relies on Programming language such as ***JavaScript***; Data interchange format such as **JSON** or **XML**.
-- **```XMLHttpRequest```** object **(XHR object)**
-  Uses HTTP to exchange data between a client computer and a web server
-  Can be used to request and receive data without reloading a web page
-- Combining XMLHttpRequest with DHTML allows update and modification to individual portions of a web page with data received from a web server
+- Relies on Programming language such as ***JavaScript***;  
+  Data interchange format such as **JSON** or **XML**.
+- **```XMLHttpRequest```**(XHR)**** object uses HTTP to exchange data between a client computer and a web server.  
+  Unlike standart HTTP requests, which usually replaces the entire page in a web browser, the ```XMLHttpRequest```can be used to request and receive data without reloading a web page.
+- Combining ```XMLHttpRequest``` with DHTML allows update and modification to individual portions of a web page with data received from a web server
 
 ### Understanding the Limitations of Ajax
 Data requested can be located on a third-party server. The **same-origin policy** applies only to JavaScript and not to other programs running on a web server. This means that you can use a server-side script as a proxy to access data from another domain.  
