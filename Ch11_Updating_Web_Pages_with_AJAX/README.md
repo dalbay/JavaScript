@@ -268,13 +268,26 @@ if (!curRequest) {
 <br/>
 
 ### Sending and Receiving Synchronous Requests and Responses
-- Synchronous request 
-  - Stops the processing of the JavaScript code until a response returned from the server
-  - Check ```XMLHttpRequest``` object’s ```status``` property value
-    - Ensure response received successfully
-- Synchronous responses 
-  - Easier to handle; drawback is that script will not continue processing until the response is received
-#### Sending and Receiving Asynchronous Requests and Responses
+- Synchronous request - stops the processing of the JavaScript code until a response returned from the server
+- To create a synchronous request, check the value of the```XMLHttpRequest``` object’s ```status``` property to ensure that the response was received successfully.  
+***Example :*** the following demonstrates how to use the returned status code and response string:  
+```JavaScript
+   stockRequest.abort();
+   stockRequest.open("get", "StockCheck.php?" + "checkQuote=" + ticherSymbol, false);
+   if(stockRequest.status === 200){
+      stockRequest.send(null);
+      var stockRequest = JSON.parse(stockRequest.responseText);
+      document.getElementById("ticher").innerHTML = stockValues.ticker; 
+   . . .
+   }
+   else{
+      document.write("<p>HTTP response error " + stockRequest.status + ": " + stockRequest.statusText + "</p>");
+   }
+```  
+Although synchronous reponses are easier to handle than asynchronous responses, one major drawback is that a script will not continue processing until a synchronous response is received.  
+<br/>
+
+### Sending and Receiving Asynchronous Requests and Responses
 - Asynchronous request 
   - Allows JavaScript to continue processing while it waits for a server response
 - Create an asynchronous request
