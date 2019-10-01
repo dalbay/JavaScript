@@ -532,6 +532,58 @@ function fillWeather() {
 In your browser console, type ```weatherReport``` and press Enter:
 ![XMLHttpResponse image console response](./images/httpImg14.png)  
 
+12. Adding the forecast data to the app:  
+*The final step in implementing an Ajax request is to add data provided by the web service to DOM elements in your app and to perform any other final tasks based on the data.*  
+Within the ```if``` statement inside the fillWeather() function and below the statement you entered in the previous step, enter the following to enter the following statements to place and style selected forecast data:
+```JavaScript 
+   
+      // add the forecast data to the app; and style data:
+      var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var dateValue = new Date(weatherReport.daily.data[0].time);
+      var dayOfWeek = dateValue.getDay();
+      var rows = document.querySelectorAll("section.week table tbody tr");
+      document.querySelector("section.week table caption").innerHTML = selectedCity;
+      for (var i = 0; i < rows.length; i++) {
+         var firstCell = rows[i].getElementsByTagName("td")[0];
+         var secondCell = rows[i].getElementsByTagName("td")[1];
+         var thirdCell = rows[i].getElementsByTagName("td")[2];
+         firstCell.innerHTML = days[dayOfWeek];
+         if (dayOfWeek + 1 === 7) {
+            dayOfWeek = 0;
+         } else {
+            dayOfWeek++;
+         }
+         var sun = Math.round((1 - weatherReport.daily.data[i].cloudCover) * 100, 0);
+         if (sun > 90) {
+            secondCell.style.color = "rgb(255,171,0)";
+         } else if (sun > 80 && sun <= 90) {
+            secondCell.style.color = "rgb(255,179,25)";
+         } else if (sun > 70 && sun <= 80) {
+            secondCell.style.color = "rgb(255,188,51)";
+         } else if (sun > 60 && sun <= 70) {
+            secondCell.style.color = "rgb(255,196,77)";
+         } else if (sun > 50 && sun <= 60) {
+            secondCell.style.color = "rgb(255,205,102)";
+         } else if (sun > 40 && sun <= 50) {
+            secondCell.style.color = "rgb(255,213,128)";
+         } else if (sun > 30 && sun <= 40) {
+            secondCell.style.color = "rgb(255,221,158)";
+         } else if (sun > 20 && sun <= 30) {
+            secondCell.style.color = "rgb(255,230,179)";
+         } else if (sun > 10 && sun <= 20) {
+            secondCell.style.color = "rgb(255,238,204)";
+         } else if (sun <= 10) {
+            secondCell.style.color = "rgb(255,247,230)";
+         }
+         secondCell.style.fontSize = "2.5em";
+         thirdCell.innerHTML = sun + "%";
+      }
+      document.querySelector("section.week table caption").style.display = "block";
+      document.querySelector("section.week table").style.display = "inline-block";
+      //make the credit line visible
+      document.querySelector("section.week p.credit").style.display = "inline-block";
+```  
+![XMLHttpRequest adding data to app](./images/httpImg15.png)
 
 
 
