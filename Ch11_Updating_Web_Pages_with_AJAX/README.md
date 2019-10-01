@@ -464,9 +464,14 @@ within the ```getWeather()``` function, just before the closing }, enter the fol
    - in the file list click solar.php?lat=37.7577&lng=-122.4376 -> this is the request created by the ```XMLHttpRequest``` object stored in the ```httpRequest``` variable for the default location of Tucson,AZ.
    - Examine the request and response headers. The response headers include the headers and values you specified in the solar.php file for ```Cache-Control``` and ```Content-Type```.  
    ![XMLHttpRequest images](./images/httpImg11.png)  
+
+9. Examine the request return - a long string of labels and values:  
+   - You can examine the return on the Preview or Response tag -
+   ![XMLHttpResponse image response](./images/httpImg12.png)  
+   - You can also examine the return in Console - type ```httpRequest.responseText``` and press Enter.  
+   ![XMLHttpResponse image console response](./images/httpImg13.png)  
    
-   Even though you have received a response, notice that the document displays no additional content.  
-   After you receive data from a web service, you need to add additional JavaScript code to parse the result and place the in your layout.
+Next explore how to access and incorporate this data into your app.
 
 
 
