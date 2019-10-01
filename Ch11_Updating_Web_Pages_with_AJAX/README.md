@@ -155,6 +155,7 @@ Use the methods and properties of an instantiated **```XMLHtppRequest```** objec
 
 ### Instantiating an XMLHttpRequest Object
 - The first step for using Ajax to exchange data between an HTTP client and a web server is to instantiate an ```XMLHttpRequest```object.  
+
 Unlike some other build-in JavaScript objects like arrays, there is no object literal form for creating an XMLHttpRequest object. Instead, you **instantiate an ```XMLHttpRequest``` object with the ```XMLHttpRequest```constructor,** as follows:  
 ```JavaScript
 	var httpRequest = new XMLHttpRequest();
