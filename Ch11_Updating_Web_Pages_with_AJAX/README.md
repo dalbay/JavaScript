@@ -146,12 +146,7 @@ Use the methods and properties of an instantiated **```XMLHtppRequest```** objec
 | abort()    | Cancels the current request  | 
 | getAllResponseHeaders() | 	Returns header information      |  
 | getResponseHeader()	 | Returns specific header information    |
-| open(method, url, async, user, psw)	 | Specifies the request
-method: the request type GET or POST
-url: the file location
-async: true (asynchronous) or false (synchronous)
-user: optional user name
-psw: optional password |
+| open(method, url, async, user, psw)	 | Specifies the request - method: the request type GET or POST; url: the file location; async: true (asynchronous) or false (synchronous); user: optional user name; psw: optional password |
 | statusText	 |Returns the status-text (e.g. "Not Found" or "OK")   |
 ![http methods images](./images/httpImg4.png)
 
