@@ -117,19 +117,39 @@ When you incorporate data from a web service into an app that runs in a browser,
   - 5xx: (server error) - Request cannot be fulfilled due to a server error  
 <br/>
 
-- **Example :** for successful requests with HTTP 1.1, the start line in the response message consists of the following status line:
+**Example :** for successful requests with HTTP 1.1, the start line in the response message consists of the following status line:
 ```JavaScript
    HTTP/1.1 200 OK
 ```
 <br/>
 
 ## Requesting Server Data
-- **```XMLHttpRequest```** object is the key to incorporating Ajax in JavaScript code because it allows use to use JavaScript and HTTP to exchange data between a web browser and a web server
-- More specifically, *you can use the methods and properties of an instantiated **```XMLHtppRequest```** object with JavaScript to build and send request messages, and to receive and process response messages.*  
 
-***The ```XMLHtppRequest```*** object contains the methods listed below:
+*Use the methods and properties of an instantiated **```XMLHtppRequest```** object with JavaScript to build and send request messages, and to receive and process response messages.*  
+
+***XMLHttpRequest Object Properties***:
+
+| Property      | Description   | 
+| ------------- |:-------------:| 
+| onreadystatechange      | Stores a function (or the name of a function/event handler) to be called automatically each time the readyState property changes | 
+| readyState    | The state of the http request  (from 0 to 4)  | 
+| responseText |Returns the response data as a string      |  
+| responseXML	 |Returns the response data as XML data    |
+| status	 |Returns the status-number (e.g. "404" for "Not Found" or "200" for "OK")    |
+| statusText	 |Returns the status-text (e.g. "Not Found" or "OK")   |
+
+***XMLHttpRequest Object Methods***:
+
+| Method      | Description   | 
+| ------------- |:-------------:| 
+| new XMLHttpRequest()      | Creates a new XMLHttpRequest object | 
+| readyState    | The state of the http request  (from 0 to 4)  | 
+| responseText |Returns the response data as a string      |  
+| responseXML	 |Returns the response data as XML data    |
+| status	 |Returns the status-number (e.g. "404" for "Not Found" or "200" for "OK")    |
+| statusText	 |Returns the status-text (e.g. "Not Found" or "OK")   |
 ![http methods images](./images/httpImg4.png)
-![http methods images](./images/httpImg5.png)
+
 
 ### Instantiating an XMLHttpRequest Object
 - The first step for using Ajax to exchange data between an HTTP client and a web server is to instantiate an ```XMLHttpRequest```object. 
